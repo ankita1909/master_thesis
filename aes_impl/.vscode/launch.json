@@ -1,0 +1,60 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch PSoC6 CM4 (OpenOCD)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "executable": "target/thumbv7em-none-eabi/debug/psoc6_helloworld",
+      "servertype": "openocd",
+      "searchDir": [
+        "${workspaceRoot}",
+        "${workspaceRoot}/arm-none-eabi-files",
+        "${workspaceRoot}/openocd/scripts/"
+      ],
+      "configFiles": [
+        "openocd.tcl"
+      ],
+      "overrideLaunchCommands": [
+        "set mem inaccessible-by-default off",
+        "-enable-pretty-printing",
+        "monitor arm semihosting enable",
+        "monitor reset init",
+        "-target-download",
+        "monitor reset run",
+        "monitor sleep 200",
+        "monitor psoc6 reset_halt sysresetreq"
+      ],
+      "overrideRestartCommands": [],
+      "postRestartSessionCommands": [],
+      "preLaunchCommands": [],
+      "svdFile": "psoc6_02.svd",
+      "runToMain": true,
+      "showDevDebugOutput": false
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [
+        ""
+      ],
+      "stopAtEntry": false,
+      "cwd": "c:/Users/KumarAnkita/Documents/trying_on_win/aes_impl",
+      "environment": [],
+      "program": "c:/Users/KumarAnkita/Documents/trying_on_win/aes_impl/build/Debug/outDebug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "externalConsole": false,
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

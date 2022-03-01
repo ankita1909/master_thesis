@@ -1,0 +1,214 @@
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,aes_using_1d_array::get_sbox_value,58
+2,::aes_using_1d_array::AES::key_expansion,3046
+3,::aes_using_1d_array::AES::add_round_key,336
+4,::aes_using_1d_array::AES::sub_bytes,152
+5,::aes_using_1d_array::AES::shift_rows,190
+6,::aes_using_1d_array::AES::xtime,82
+7,::aes_using_1d_array::AES::mix_columns,1288
+8,::aes_using_1d_array::AES::gen_cipher,168
+9,::aes_using_1d_array::AES::AES128_ECB_encrypt,18
+10,::aes_using_1d_array::sbox,256
+11,::aes_using_1d_array::Rcon,255
+12,sum,5849
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,aes_using_1d_array::get_sbox_value,58
+2,::aes_using_1d_array::AES::key_expansion,3046
+3,::aes_using_1d_array::AES::add_round_key,336
+4,::aes_using_1d_array::AES::sub_bytes,152
+5,::aes_using_1d_array::AES::shift_rows,190
+6,::aes_using_1d_array::AES::xtime,82
+7,::aes_using_1d_array::AES::mix_columns,1288
+8,::aes_using_1d_array::AES::gen_cipher,168
+9,::aes_using_1d_array::AES::AES128_ECB_encrypt,18
+10,::aes_using_1d_array::sbox,256
+11,::aes_using_1d_array::Rcon,255
+12,sum,5849
+13,opt-level = 1, 
+14,aes_using_1d_array::get_sbox_value,14
+15,::aes_using_1d_array::AES::key_expansion,888
+16,::aes_using_1d_array::AES::add_round_key,224
+17,::aes_using_1d_array::AES::sub_bytes,82
+18,::aes_using_1d_array::AES::shift_rows,64
+19,::aes_using_1d_array::AES::xtime,14
+20,::aes_using_1d_array::AES::mix_columns,396
+21,::aes_using_1d_array::AES::gen_cipher,114
+22,::aes_using_1d_array::AES::AES128_ECB_encrypt,10
+23,::aes_using_1d_array::sbox,256
+24,::aes_using_1d_array::Rcon,255
+25,sum,2317
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,aes_using_1d_array::get_sbox_value,58
+2,::aes_using_1d_array::AES::key_expansion,3046
+3,::aes_using_1d_array::AES::add_round_key,336
+4,::aes_using_1d_array::AES::sub_bytes,152
+5,::aes_using_1d_array::AES::shift_rows,190
+6,::aes_using_1d_array::AES::xtime,82
+7,::aes_using_1d_array::AES::mix_columns,1288
+8,::aes_using_1d_array::AES::gen_cipher,168
+9,::aes_using_1d_array::AES::AES128_ECB_encrypt,18
+10,::aes_using_1d_array::sbox,256
+11,::aes_using_1d_array::Rcon,255
+12,sum,5849
+13,opt-level = 1, 
+14,aes_using_1d_array::get_sbox_value,14
+15,::aes_using_1d_array::AES::key_expansion,888
+16,::aes_using_1d_array::AES::add_round_key,224
+17,::aes_using_1d_array::AES::sub_bytes,82
+18,::aes_using_1d_array::AES::shift_rows,64
+19,::aes_using_1d_array::AES::xtime,14
+20,::aes_using_1d_array::AES::mix_columns,396
+21,::aes_using_1d_array::AES::gen_cipher,114
+22,::aes_using_1d_array::AES::AES128_ECB_encrypt,10
+23,::aes_using_1d_array::sbox,256
+24,::aes_using_1d_array::Rcon,255
+25,sum,2317
+26,opt-level = 2, 
+27,::aes_using_1d_array::AES::key_expansion,182
+28,::aes_using_1d_array::AES::AES128_ECB_encrypt,1396
+29,::aes_using_1d_array::sbox,256
+30,::aes_using_1d_array::Rcon,255
+31,sum,2089
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,aes_using_1d_array::get_sbox_value,58
+2,::aes_using_1d_array::AES::key_expansion,3046
+3,::aes_using_1d_array::AES::add_round_key,336
+4,::aes_using_1d_array::AES::sub_bytes,152
+5,::aes_using_1d_array::AES::shift_rows,190
+6,::aes_using_1d_array::AES::xtime,82
+7,::aes_using_1d_array::AES::mix_columns,1288
+8,::aes_using_1d_array::AES::gen_cipher,168
+9,::aes_using_1d_array::AES::AES128_ECB_encrypt,18
+10,::aes_using_1d_array::sbox,256
+11,::aes_using_1d_array::Rcon,255
+12,sum,5849
+13,opt-level = 1, 
+14,aes_using_1d_array::get_sbox_value,14
+15,::aes_using_1d_array::AES::key_expansion,888
+16,::aes_using_1d_array::AES::add_round_key,224
+17,::aes_using_1d_array::AES::sub_bytes,82
+18,::aes_using_1d_array::AES::shift_rows,64
+19,::aes_using_1d_array::AES::xtime,14
+20,::aes_using_1d_array::AES::mix_columns,396
+21,::aes_using_1d_array::AES::gen_cipher,114
+22,::aes_using_1d_array::AES::AES128_ECB_encrypt,10
+23,::aes_using_1d_array::sbox,256
+24,::aes_using_1d_array::Rcon,255
+25,sum,2317
+26,opt-level = 2, 
+27,::aes_using_1d_array::AES::key_expansion,182
+28,::aes_using_1d_array::AES::AES128_ECB_encrypt,1396
+29,::aes_using_1d_array::sbox,256
+30,::aes_using_1d_array::Rcon,255
+31,sum,2089
+32,opt-level = 3, 
+33,::aes_using_1d_array::AES::key_expansion,182
+34,::aes_using_1d_array::AES::AES128_ECB_encrypt,1280
+35,::aes_using_1d_array::sbox,256
+36,::aes_using_1d_array::Rcon,255
+37,sum,1973
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,aes_using_1d_array::get_sbox_value,58
+2,::aes_using_1d_array::AES::key_expansion,3046
+3,::aes_using_1d_array::AES::add_round_key,336
+4,::aes_using_1d_array::AES::sub_bytes,152
+5,::aes_using_1d_array::AES::shift_rows,190
+6,::aes_using_1d_array::AES::xtime,82
+7,::aes_using_1d_array::AES::mix_columns,1288
+8,::aes_using_1d_array::AES::gen_cipher,168
+9,::aes_using_1d_array::AES::AES128_ECB_encrypt,18
+10,::aes_using_1d_array::sbox,256
+11,::aes_using_1d_array::Rcon,255
+12,sum,5849
+13,opt-level = 1, 
+14,aes_using_1d_array::get_sbox_value,14
+15,::aes_using_1d_array::AES::key_expansion,888
+16,::aes_using_1d_array::AES::add_round_key,224
+17,::aes_using_1d_array::AES::sub_bytes,82
+18,::aes_using_1d_array::AES::shift_rows,64
+19,::aes_using_1d_array::AES::xtime,14
+20,::aes_using_1d_array::AES::mix_columns,396
+21,::aes_using_1d_array::AES::gen_cipher,114
+22,::aes_using_1d_array::AES::AES128_ECB_encrypt,10
+23,::aes_using_1d_array::sbox,256
+24,::aes_using_1d_array::Rcon,255
+25,sum,2317
+26,opt-level = 2, 
+27,::aes_using_1d_array::AES::key_expansion,182
+28,::aes_using_1d_array::AES::AES128_ECB_encrypt,1396
+29,::aes_using_1d_array::sbox,256
+30,::aes_using_1d_array::Rcon,255
+31,sum,2089
+32,opt-level = 3, 
+33,::aes_using_1d_array::AES::key_expansion,182
+34,::aes_using_1d_array::AES::AES128_ECB_encrypt,1280
+35,::aes_using_1d_array::sbox,256
+36,::aes_using_1d_array::Rcon,255
+37,sum,1973
+38,"opt-level = ""s""", 
+39,::aes_using_1d_array::AES::key_expansion,144
+40,::aes_using_1d_array::AES::add_round_key,134
+41,::aes_using_1d_array::AES::shift_rows,64
+42,::aes_using_1d_array::AES::AES128_ECB_encrypt,258
+43,::aes_using_1d_array::sbox,256
+44,::aes_using_1d_array::Rcon,255
+45,sum,1111
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,aes_using_1d_array::get_sbox_value,58
+2,::aes_using_1d_array::AES::key_expansion,3046
+3,::aes_using_1d_array::AES::add_round_key,336
+4,::aes_using_1d_array::AES::sub_bytes,152
+5,::aes_using_1d_array::AES::shift_rows,190
+6,::aes_using_1d_array::AES::xtime,82
+7,::aes_using_1d_array::AES::mix_columns,1288
+8,::aes_using_1d_array::AES::gen_cipher,168
+9,::aes_using_1d_array::AES::AES128_ECB_encrypt,18
+10,::aes_using_1d_array::sbox,256
+11,::aes_using_1d_array::Rcon,255
+12,sum,5849
+13,opt-level = 1, 
+14,aes_using_1d_array::get_sbox_value,14
+15,::aes_using_1d_array::AES::key_expansion,888
+16,::aes_using_1d_array::AES::add_round_key,224
+17,::aes_using_1d_array::AES::sub_bytes,82
+18,::aes_using_1d_array::AES::shift_rows,64
+19,::aes_using_1d_array::AES::xtime,14
+20,::aes_using_1d_array::AES::mix_columns,396
+21,::aes_using_1d_array::AES::gen_cipher,114
+22,::aes_using_1d_array::AES::AES128_ECB_encrypt,10
+23,::aes_using_1d_array::sbox,256
+24,::aes_using_1d_array::Rcon,255
+25,sum,2317
+26,opt-level = 2, 
+27,::aes_using_1d_array::AES::key_expansion,182
+28,::aes_using_1d_array::AES::AES128_ECB_encrypt,1396
+29,::aes_using_1d_array::sbox,256
+30,::aes_using_1d_array::Rcon,255
+31,sum,2089
+32,opt-level = 3, 
+33,::aes_using_1d_array::AES::key_expansion,182
+34,::aes_using_1d_array::AES::AES128_ECB_encrypt,1280
+35,::aes_using_1d_array::sbox,256
+36,::aes_using_1d_array::Rcon,255
+37,sum,1973
+38,"opt-level = ""s""", 
+39,::aes_using_1d_array::AES::key_expansion,144
+40,::aes_using_1d_array::AES::add_round_key,134
+41,::aes_using_1d_array::AES::shift_rows,64
+42,::aes_using_1d_array::AES::AES128_ECB_encrypt,258
+43,::aes_using_1d_array::sbox,256
+44,::aes_using_1d_array::Rcon,255
+45,sum,1111
+46,"opt-level = ""z""", 
+47,::aes_using_1d_array::AES::key_expansion,492
+48,::aes_using_1d_array::AES::add_round_key,152
+49,::aes_using_1d_array::AES::AES128_ECB_encrypt,340
+50,::aes_using_1d_array::sbox,256
+51,::aes_using_1d_array::Rcon,255
+52,sum,1495
