@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ANA_TRIM1_SPEC","Analog trim register."],["R","Register `ANA_TRIM1` reader"],["SAR_REF_BUF_TRIM_R","Field `SAR_REF_BUF_TRIM` reader - SAR Reference buffer trim"],["SAR_REF_BUF_TRIM_W","Field `SAR_REF_BUF_TRIM` writer - SAR Reference buffer trim"],["W","Register `ANA_TRIM1` writer"]]});

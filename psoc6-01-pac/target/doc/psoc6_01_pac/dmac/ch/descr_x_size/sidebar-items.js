@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DESCR_X_SIZE_SPEC","Channel descriptor X size"],["R","Register `DESCR_X_SIZE` reader"],["X_COUNT_R","Field `X_COUNT` reader - N/A"]]});

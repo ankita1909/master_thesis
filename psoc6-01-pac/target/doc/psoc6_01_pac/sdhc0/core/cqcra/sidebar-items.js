@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CMD_RESP_ARG_R","Field `CMD_RESP_ARG` reader - Last Command Response argument This field stores the argument of the last received command response. Controller updates the value every time a command response is received."],["CQCRA_SPEC","CQ Command response argument register"],["R","Register `CQCRA` reader"]]});

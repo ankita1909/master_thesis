@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["mpu_struct","Register block MPU structure"],["ms_ctl","Master control"],["ms_ctl_read_mir","Master control read mirror"]],"struct":[["MPU_STRUCT","Register block"]],"type":[["MS_CTL","MS_CTL register accessor: an alias for `Reg<MS_CTL_SPEC>`"],["MS_CTL_READ_MIR","MS_CTL_READ_MIR register accessor: an alias for `Reg<MS_CTL_READ_MIR_SPEC>`"]]});

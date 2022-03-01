@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DATA0_R","Field `DATA0` reader - RX data (read from RX data FIFO, first byte)."],["DATA1_R","Field `DATA1` reader - RX data (read from RX data FIFO, second byte)."],["R","Register `RX_DATA_FIFO_RD2` reader"],["RX_DATA_FIFO_RD2_SPEC","Receiver data FIFO read"]]});

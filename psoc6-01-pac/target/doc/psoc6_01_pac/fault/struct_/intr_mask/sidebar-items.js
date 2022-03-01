@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["FAULT_R","Field `FAULT` reader - Mask bit for corresponding field in the INTR register."],["FAULT_W","Field `FAULT` writer - Mask bit for corresponding field in the INTR register."],["INTR_MASK_SPEC","Interrupt mask"],["R","Register `INTR_MASK` reader"],["W","Register `INTR_MASK` writer"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["intr_struct","Register block IPC interrupt structure"],["struct_","Register block IPC structure"]],"struct":[["INTR_STRUCT","Register block"],["RegisterBlock","Register block"],["STRUCT","Register block"]]});

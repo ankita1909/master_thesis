@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["AZ_TIME_R","Field `AZ_TIME` reader - Define Auto-Zero time in csd_sense cycles -1."],["AZ_TIME_W","Field `AZ_TIME` writer - Define Auto-Zero time in csd_sense cycles -1."],["R","Register `SEQ_TIME` reader"],["SEQ_TIME_SPEC","Sequencer Timing"],["W","Register `SEQ_TIME` writer"]]});

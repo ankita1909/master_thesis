@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ADC_STATE_R","Field `ADC_STATE` reader - ADC sequencer state (only relevant after SEQ_STATE has reached SAMPLE_NORM and ADC sequencer has started)"],["R","Register `STAT_SEQ` reader"],["SEQ_STATE_R","Field `SEQ_STATE` reader - CSD sequencer state"],["STAT_SEQ_SPEC","Current Sequencer status"]]});

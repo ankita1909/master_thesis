@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `STATUS` reader"],["STATUS_SPEC","Profile status"],["WIN_ACTIVE_R","Field `WIN_ACTIVE` reader - Indicates if the profiling time window is active. ‘0’: Not active. ‘1’: Active."]]});

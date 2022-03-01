@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["aref_ctrl","global AREF control"]],"type":[["AREF_CTRL","AREF_CTRL register accessor: an alias for `Reg<AREF_CTRL_SPEC>`"]]});

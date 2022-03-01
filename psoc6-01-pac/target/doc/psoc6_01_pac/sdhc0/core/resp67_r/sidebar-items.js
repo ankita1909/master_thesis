@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `RESP67_R` reader"],["RESP67_R","Field `RESP67` reader - Command Response These bits reflect bits 135-104 of SD/EMMC Response Field. Note: For Auto CMD, this register also reflects the 32-bit response (bits 39-8 of the Response Field)."],["RESP67_R_SPEC","Response Register 6/7"]]});

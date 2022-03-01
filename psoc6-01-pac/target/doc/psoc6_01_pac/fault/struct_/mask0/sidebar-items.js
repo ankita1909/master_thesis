@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["MASK0_SPEC","Fault mask 0"],["R","Register `MASK0` reader"],["SOURCE_R","Field `SOURCE` reader - Fault source enables: Bits 31-0: Fault sources 31 to 0."],["SOURCE_W","Field `SOURCE` writer - Fault source enables: Bits 31-0: Fault sources 31 to 0."],["W","Register `MASK0` writer"]]});

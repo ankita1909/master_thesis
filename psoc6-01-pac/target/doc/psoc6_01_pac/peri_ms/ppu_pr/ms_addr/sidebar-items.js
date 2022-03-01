@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ADDR26_R","Field `ADDR26` reader - This field specifies the base address of the master region. The base address of the region is the address of the SL_ADDR register."],["MS_ADDR_SPEC","Master region, base address"],["R","Register `MS_ADDR` reader"]]});

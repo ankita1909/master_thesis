@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `RESP45_R` reader"],["RESP45_R","Field `RESP45` reader - Command Response These bits reflect 103-72 bits of the Response Field."],["RESP45_R_SPEC","Response Register 4/5"]]});

@@ -1,0 +1,6 @@
+svd2rust -i psoc6_02.svd -g 
+mkdir src
+mv generic.rs src/
+form -i lib.rs  -o src/
+rm lib.rs 
+cargo fmt

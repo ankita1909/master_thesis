@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/flashc/fm_ctl.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>fm_ctl.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../psoc6_01_pac/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<span id="2">  2</span>
+<span id="3">  3</span>
+<span id="4">  4</span>
+<span id="5">  5</span>
+<span id="6">  6</span>
+<span id="7">  7</span>
+<span id="8">  8</span>
+<span id="9">  9</span>
+<span id="10"> 10</span>
+<span id="11"> 11</span>
+<span id="12"> 12</span>
+<span id="13"> 13</span>
+<span id="14"> 14</span>
+<span id="15"> 15</span>
+<span id="16"> 16</span>
+<span id="17"> 17</span>
+<span id="18"> 18</span>
+<span id="19"> 19</span>
+<span id="20"> 20</span>
+<span id="21"> 21</span>
+<span id="22"> 22</span>
+<span id="23"> 23</span>
+<span id="24"> 24</span>
+<span id="25"> 25</span>
+<span id="26"> 26</span>
+<span id="27"> 27</span>
+<span id="28"> 28</span>
+<span id="29"> 29</span>
+<span id="30"> 30</span>
+<span id="31"> 31</span>
+<span id="32"> 32</span>
+<span id="33"> 33</span>
+<span id="34"> 34</span>
+<span id="35"> 35</span>
+<span id="36"> 36</span>
+<span id="37"> 37</span>
+<span id="38"> 38</span>
+<span id="39"> 39</span>
+<span id="40"> 40</span>
+<span id="41"> 41</span>
+<span id="42"> 42</span>
+<span id="43"> 43</span>
+<span id="44"> 44</span>
+<span id="45"> 45</span>
+<span id="46"> 46</span>
+<span id="47"> 47</span>
+<span id="48"> 48</span>
+<span id="49"> 49</span>
+<span id="50"> 50</span>
+<span id="51"> 51</span>
+<span id="52"> 52</span>
+<span id="53"> 53</span>
+<span id="54"> 54</span>
+<span id="55"> 55</span>
+<span id="56"> 56</span>
+<span id="57"> 57</span>
+<span id="58"> 58</span>
+<span id="59"> 59</span>
+<span id="60"> 60</span>
+<span id="61"> 61</span>
+<span id="62"> 62</span>
+<span id="63"> 63</span>
+<span id="64"> 64</span>
+<span id="65"> 65</span>
+<span id="66"> 66</span>
+<span id="67"> 67</span>
+<span id="68"> 68</span>
+<span id="69"> 69</span>
+<span id="70"> 70</span>
+<span id="71"> 71</span>
+<span id="72"> 72</span>
+<span id="73"> 73</span>
+<span id="74"> 74</span>
+<span id="75"> 75</span>
+<span id="76"> 76</span>
+<span id="77"> 77</span>
+<span id="78"> 78</span>
+<span id="79"> 79</span>
+<span id="80"> 80</span>
+<span id="81"> 81</span>
+<span id="82"> 82</span>
+<span id="83"> 83</span>
+<span id="84"> 84</span>
+<span id="85"> 85</span>
+<span id="86"> 86</span>
+<span id="87"> 87</span>
+<span id="88"> 88</span>
+<span id="89"> 89</span>
+<span id="90"> 90</span>
+<span id="91"> 91</span>
+<span id="92"> 92</span>
+<span id="93"> 93</span>
+<span id="94"> 94</span>
+<span id="95"> 95</span>
+<span id="96"> 96</span>
+<span id="97"> 97</span>
+<span id="98"> 98</span>
+<span id="99"> 99</span>
+<span id="100">100</span>
+<span id="101">101</span>
+<span id="102">102</span>
+<span id="103">103</span>
+<span id="104">104</span>
+<span id="105">105</span>
+<span id="106">106</span>
+<span id="107">107</span>
+<span id="108">108</span>
+<span id="109">109</span>
+<span id="110">110</span>
+<span id="111">111</span>
+<span id="112">112</span>
+<span id="113">113</span>
+<span id="114">114</span>
+<span id="115">115</span>
+<span id="116">116</span>
+<span id="117">117</span>
+<span id="118">118</span>
+<span id="119">119</span>
+<span id="120">120</span>
+<span id="121">121</span>
+<span id="122">122</span>
+<span id="123">123</span>
+<span id="124">124</span>
+<span id="125">125</span>
+<span id="126">126</span>
+<span id="127">127</span>
+<span id="128">128</span>
+<span id="129">129</span>
+<span id="130">130</span>
+<span id="131">131</span>
+<span id="132">132</span>
+<span id="133">133</span>
+<span id="134">134</span>
+<span id="135">135</span>
+<span id="136">136</span>
+<span id="137">137</span>
+<span id="138">138</span>
+<span id="139">139</span>
+<span id="140">140</span>
+<span id="141">141</span>
+<span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
+<span id="145">145</span>
+<span id="146">146</span>
+<span id="147">147</span>
+<span id="148">148</span>
+</pre><pre class="rust">
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;FM_CTL register accessor: an alias for `Reg&lt;FM_CTL_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">FM_CTL</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">fm_ctl::FM_CTL_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Flash macro control&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">fm_ctl</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;STATUS register accessor: an alias for `Reg&lt;STATUS_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">STATUS</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">status::STATUS_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Status&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">status</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;FM_ADDR register accessor: an alias for `Reg&lt;FM_ADDR_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">FM_ADDR</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">fm_addr::FM_ADDR_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Flash macro address&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">fm_addr</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;BOOKMARK register accessor: an alias for `Reg&lt;BOOKMARK_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">BOOKMARK</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">bookmark::BOOKMARK_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Bookmark register - keeps the current FW HV seq&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">bookmark</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;GEOMETRY register accessor: an alias for `Reg&lt;GEOMETRY_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">GEOMETRY</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">geometry::GEOMETRY_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Regular flash geometry&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">geometry</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;GEOMETRY_SUPERVISORY register accessor: an alias for `Reg&lt;GEOMETRY_SUPERVISORY_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">GEOMETRY_SUPERVISORY</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">geometry_supervisory::GEOMETRY_SUPERVISORY_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Supervisory flash geometry&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">geometry_supervisory</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;ANA_CTL0 register accessor: an alias for `Reg&lt;ANA_CTL0_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">ANA_CTL0</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">ana_ctl0::ANA_CTL0_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Analog control 0&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ana_ctl0</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;ANA_CTL1 register accessor: an alias for `Reg&lt;ANA_CTL1_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">ANA_CTL1</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">ana_ctl1::ANA_CTL1_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Analog control 1&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ana_ctl1</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;WAIT_CTL register accessor: an alias for `Reg&lt;WAIT_CTL_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">WAIT_CTL</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">wait_ctl::WAIT_CTL_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Wait State control&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">wait_ctl</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;TIMER_CLK_CTL register accessor: an alias for `Reg&lt;TIMER_CLK_CTL_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">TIMER_CLK_CTL</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">timer_clk_ctl::TIMER_CLK_CTL_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Timer prescaler (clk_t to timer clock frequency divider)&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">timer_clk_ctl</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;TIMER_CTL register accessor: an alias for `Reg&lt;TIMER_CTL_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">TIMER_CTL</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">timer_ctl::TIMER_CTL_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Timer control&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">timer_ctl</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;ACLK_CTL register accessor: an alias for `Reg&lt;ACLK_CTL_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">ACLK_CTL</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">aclk_ctl::ACLK_CTL_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;MPCON clock&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">aclk_ctl</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;INTR register accessor: an alias for `Reg&lt;INTR_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">INTR</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">intr::INTR_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Interrupt&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">intr</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;INTR_SET register accessor: an alias for `Reg&lt;INTR_SET_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">INTR_SET</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">intr_set::INTR_SET_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Interrupt set&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">intr_set</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;INTR_MASK register accessor: an alias for `Reg&lt;INTR_MASK_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">INTR_MASK</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">intr_mask::INTR_MASK_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Interrupt mask&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">intr_mask</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;INTR_MASKED register accessor: an alias for `Reg&lt;INTR_MASKED_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">INTR_MASKED</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">intr_masked::INTR_MASKED_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Interrupt masked&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">intr_masked</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;CAL_CTL0 register accessor: an alias for `Reg&lt;CAL_CTL0_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">CAL_CTL0</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">cal_ctl0::CAL_CTL0_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Cal control BG LO trim bits&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">cal_ctl0</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;CAL_CTL1 register accessor: an alias for `Reg&lt;CAL_CTL1_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">CAL_CTL1</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">cal_ctl1::CAL_CTL1_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Cal control BG HI trim bits&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">cal_ctl1</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;CAL_CTL2 register accessor: an alias for `Reg&lt;CAL_CTL2_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">CAL_CTL2</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">cal_ctl2::CAL_CTL2_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Cal control BG LO&amp;HI trim bits&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">cal_ctl2</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;CAL_CTL3 register accessor: an alias for `Reg&lt;CAL_CTL3_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">CAL_CTL3</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">cal_ctl3::CAL_CTL3_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Cal control osc trim bits, idac, sdac, itim&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">cal_ctl3</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;CAL_CTL4 register accessor: an alias for `Reg&lt;CAL_CTL4_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">CAL_CTL4</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">cal_ctl4::CAL_CTL4_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Cal Control Vlim, SA, fdiv, reg_act&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">cal_ctl4</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;CAL_CTL5 register accessor: an alias for `Reg&lt;CAL_CTL5_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">CAL_CTL5</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">cal_ctl5::CAL_CTL5_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Cal control&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">cal_ctl5</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;CAL_CTL6 register accessor: an alias for `Reg&lt;CAL_CTL6_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">CAL_CTL6</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">cal_ctl6::CAL_CTL6_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;SA trim LP/ULP&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">cal_ctl6</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;CAL_CTL7 register accessor: an alias for `Reg&lt;CAL_CTL7_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">CAL_CTL7</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">cal_ctl7::CAL_CTL7_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Cal control&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">cal_ctl7</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;RED_CTL01 register accessor: an alias for `Reg&lt;RED_CTL01_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RED_CTL01</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">red_ctl01::RED_CTL01_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Redundancy Control normal sectors 0,1&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">red_ctl01</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;RED_CTL23 register accessor: an alias for `Reg&lt;RED_CTL23_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RED_CTL23</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">red_ctl23::RED_CTL23_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Redundancy Control normal sectors 2,3&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">red_ctl23</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;RED_CTL45 register accessor: an alias for `Reg&lt;RED_CTL45_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RED_CTL45</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">red_ctl45::RED_CTL45_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Redundancy Control normal sectors 4,5&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">red_ctl45</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;RED_CTL67 register accessor: an alias for `Reg&lt;RED_CTL67_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RED_CTL67</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">red_ctl67::RED_CTL67_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Redundancy Control normal sectors 6,7&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">red_ctl67</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;RED_CTL_SM01 register accessor: an alias for `Reg&lt;RED_CTL_SM01_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RED_CTL_SM01</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">red_ctl_sm01::RED_CTL_SM01_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Redundancy Control special sectors 0,1&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">red_ctl_sm01</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;RGRANT_DELAY_PRG register accessor: an alias for `Reg&lt;RGRANT_DELAY_PRG_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RGRANT_DELAY_PRG</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">rgrant_delay_prg::RGRANT_DELAY_PRG_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;R-grant delay for program&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">rgrant_delay_prg</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;PW_SEQ12 register accessor: an alias for `Reg&lt;PW_SEQ12_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PW_SEQ12</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">pw_seq12::PW_SEQ12_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;HV Pulse Delay for seq 1&amp;2 pre&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">pw_seq12</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;PW_SEQ23 register accessor: an alias for `Reg&lt;PW_SEQ23_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PW_SEQ23</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">pw_seq23::PW_SEQ23_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;HV Pulse Delay for seq2 post &amp; seq3&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">pw_seq23</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;RGRANT_SCALE_ERS register accessor: an alias for `Reg&lt;RGRANT_SCALE_ERS_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RGRANT_SCALE_ERS</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">rgrant_scale_ers::RGRANT_SCALE_ERS_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;R-grant delay scale for erase&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">rgrant_scale_ers</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;RGRANT_DELAY_ERS register accessor: an alias for `Reg&lt;RGRANT_DELAY_ERS_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RGRANT_DELAY_ERS</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">rgrant_delay_ers::RGRANT_DELAY_ERS_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;R-grant delay for erase&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">rgrant_delay_ers</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;FM_PL_WRDATA_ALL register accessor: an alias for `Reg&lt;FM_PL_WRDATA_ALL_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">FM_PL_WRDATA_ALL</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">fm_pl_wrdata_all::FM_PL_WRDATA_ALL_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Flash macro write page latches all&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">fm_pl_wrdata_all</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;FM_PL_DATA register accessor: an alias for `Reg&lt;FM_PL_DATA_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">FM_PL_DATA</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">fm_pl_data::FM_PL_DATA_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Flash macro Page Latches data&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">fm_pl_data</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;FM_MEM_DATA register accessor: an alias for `Reg&lt;FM_MEM_DATA_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">FM_MEM_DATA</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">fm_mem_data::FM_MEM_DATA_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Flash macro memory sense amplifier and column decoder data&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">fm_mem_data</span>;
+</pre></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="psoc6_01_pac" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>

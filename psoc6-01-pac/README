@@ -1,0 +1,21 @@
+# Hardware crate for the psoc6-01-pac
+This crate was generated usig the following commands:
+``` bash
+svd2rust -i psoc6_02.svd -g 
+mkdir src
+mv generic.rs src/
+form -i lib.rs  -o src/
+rm lib.rs 
+cargo fmt
+```
+
+## Tools version
+``` console
+$ svd2rust --version
+svd2rust 0.19.0 ( )
+$ form --version
+form 0.8.0
+```
+
+source for the svd:
+https://github.com/Infineon/psoc6pdl/tree/master/devices/svd

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `TRIM` reader"],["TRIM_R","Field `TRIM` reader - WCO trim"],["TRIM_SPEC","Trim Register"],["TRIM_W","Field `TRIM` writer - WCO trim"],["W","Register `TRIM` writer"]]});

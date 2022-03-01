@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CNT32KHZ_R","Field `CNT32KHZ` reader - 32kHz oscillator count (msb=128Hz), calibration can cause bit 6 to skip. Reset when RTC_TIME.RTC_SEC fields is written."],["OSCCNT_SPEC","32kHz oscillator counter"],["R","Register `OSCCNT` reader"]]});

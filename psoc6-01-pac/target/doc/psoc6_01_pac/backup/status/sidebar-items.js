@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `STATUS` reader"],["RTC_BUSY_R","Field `RTC_BUSY` reader - pending RTC write"],["STATUS_SPEC","Status"],["WCO_OK_R","Field `WCO_OK` reader - Indicates that output has transitioned."]]});

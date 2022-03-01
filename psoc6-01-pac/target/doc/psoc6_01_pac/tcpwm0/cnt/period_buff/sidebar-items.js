@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["PERIOD_BUFF_SPEC","Counter buffered period register"],["PERIOD_R","Field `PERIOD` reader - Additional buffer for counter PERIOD register."],["PERIOD_W","Field `PERIOD` writer - Additional buffer for counter PERIOD register."],["R","Register `PERIOD_BUFF` reader"],["W","Register `PERIOD_BUFF` writer"]]});

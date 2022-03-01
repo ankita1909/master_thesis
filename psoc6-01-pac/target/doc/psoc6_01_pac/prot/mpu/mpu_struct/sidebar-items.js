@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["addr","MPU region address"],["att","MPU region attrributes"]],"type":[["ADDR","ADDR register accessor: an alias for `Reg<ADDR_SPEC>`"],["ATT","ATT register accessor: an alias for `Reg<ATT_SPEC>`"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `TOUT_CTRL_R` reader"],["TOUT_CNT_R","Field `TOUT_CNT` reader - N/A"],["TOUT_CNT_W","Field `TOUT_CNT` writer - N/A"],["TOUT_CTRL_R_SPEC","Timeout Control Register"],["W","Register `TOUT_CTRL_R` writer"]]});

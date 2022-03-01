@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `SPARE` reader"],["SPARE_R","Field `SPARE` reader - Spare MMIO"],["SPARE_SPEC","Spare MMIO"],["SPARE_W","Field `SPARE` writer - Spare MMIO"],["W","Register `SPARE` writer"]]});

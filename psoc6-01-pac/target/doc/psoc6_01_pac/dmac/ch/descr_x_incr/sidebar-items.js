@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DESCR_X_INCR_SPEC","Channel descriptor X increment"],["DST_X_R","Field `DST_X` reader - N/A"],["R","Register `DESCR_X_INCR` reader"],["SRC_X_R","Field `SRC_X` reader - N/A"]]});

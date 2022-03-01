@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DR_R","Field `DR` reader - Data Register for EP ; This register is linked to the memory, hence reset value is undefined"],["DR_W","Field `DR` writer - Data Register for EP ; This register is linked to the memory, hence reset value is undefined"],["MEM_DATA_SPEC","DATA"],["R","Register `MEM_DATA[%s]` reader"],["W","Register `MEM_DATA[%s]` writer"]]});

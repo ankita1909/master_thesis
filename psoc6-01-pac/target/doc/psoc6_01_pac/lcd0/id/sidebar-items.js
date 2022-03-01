@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ID_R","Field `ID` reader - the ID of LCD controller peripheral is 0xF0F0"],["ID_SPEC","ID & Revision"],["R","Register `ID` reader"],["REVISION_R","Field `REVISION` reader - the version number is 0x0001"]]});

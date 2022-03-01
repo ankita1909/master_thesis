@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DESCR_NEXT_SPEC","Channel descriptor next pointer"],["PTR_R","Field `PTR` reader - N/A"],["R","Register `DESCR_NEXT` reader"]]});

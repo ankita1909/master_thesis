@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CC_R","Field `CC` reader - In CAPTURE mode, captures the counter value. In other modes, compared to counter value."],["CC_SPEC","Counter compare/capture register"],["CC_W","Field `CC` writer - In CAPTURE mode, captures the counter value. In other modes, compared to counter value."],["R","Register `CC` reader"],["W","Register `CC` writer"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ADDR_R","Field `ADDR` reader - Address of the protection context 3 handler."],["ADDR_W","Field `ADDR` writer - Address of the protection context 3 handler."],["CM0_PC3_HANDLER_SPEC","CM0+ protection context 3 handler"],["R","Register `CM0_PC3_HANDLER` reader"],["W","Register `CM0_PC3_HANDLER` writer"]]});

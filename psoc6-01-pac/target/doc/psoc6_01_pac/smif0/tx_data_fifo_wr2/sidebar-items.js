@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DATA0_W","Field `DATA0` writer - TX data (written to TX data FIFO, first byte)."],["DATA1_W","Field `DATA1` writer - TX data (written to TX data FIFO, second byte)."],["TX_DATA_FIFO_WR2_SPEC","Transmitter data FIFO write"],["W","Register `TX_DATA_FIFO_WR2` writer"]]});

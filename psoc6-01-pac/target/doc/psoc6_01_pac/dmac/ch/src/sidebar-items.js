@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ADDR_R","Field `ADDR` reader - Current address of source location."],["R","Register `SRC` reader"],["SRC_SPEC","Channel current source address"]]});

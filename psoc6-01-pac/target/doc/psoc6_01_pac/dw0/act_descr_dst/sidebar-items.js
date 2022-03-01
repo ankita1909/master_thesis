@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ACT_DESCR_DST_SPEC","Active descriptor destination"],["DATA_R","Field `DATA` reader - Copy of DESCR_DST of the currently active descriptor."],["R","Register `ACT_DESCR_DST` reader"]]});

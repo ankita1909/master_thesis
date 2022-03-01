@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DATA_W","Field `DATA` writer - Data frame written into the transmitter FIFO. Behavior is similar to that of a PUSH operation. Note that when CTRL.BYTE_MODE is ‘1’, only DATA[7:0] are used. A write to a full TX FIFO sets INTR_TX.OVERFLOW to ‘1’."],["TX_FIFO_WR_SPEC","Transmitter FIFO write"],["W","Register `TX_FIFO_WR` writer"]]});

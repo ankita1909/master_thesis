@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/gpio.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>gpio.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../psoc6_01_pac/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<span id="2">  2</span>
+<span id="3">  3</span>
+<span id="4">  4</span>
+<span id="5">  5</span>
+<span id="6">  6</span>
+<span id="7">  7</span>
+<span id="8">  8</span>
+<span id="9">  9</span>
+<span id="10"> 10</span>
+<span id="11"> 11</span>
+<span id="12"> 12</span>
+<span id="13"> 13</span>
+<span id="14"> 14</span>
+<span id="15"> 15</span>
+<span id="16"> 16</span>
+<span id="17"> 17</span>
+<span id="18"> 18</span>
+<span id="19"> 19</span>
+<span id="20"> 20</span>
+<span id="21"> 21</span>
+<span id="22"> 22</span>
+<span id="23"> 23</span>
+<span id="24"> 24</span>
+<span id="25"> 25</span>
+<span id="26"> 26</span>
+<span id="27"> 27</span>
+<span id="28"> 28</span>
+<span id="29"> 29</span>
+<span id="30"> 30</span>
+<span id="31"> 31</span>
+<span id="32"> 32</span>
+<span id="33"> 33</span>
+<span id="34"> 34</span>
+<span id="35"> 35</span>
+<span id="36"> 36</span>
+<span id="37"> 37</span>
+<span id="38"> 38</span>
+<span id="39"> 39</span>
+<span id="40"> 40</span>
+<span id="41"> 41</span>
+<span id="42"> 42</span>
+<span id="43"> 43</span>
+<span id="44"> 44</span>
+<span id="45"> 45</span>
+<span id="46"> 46</span>
+<span id="47"> 47</span>
+<span id="48"> 48</span>
+<span id="49"> 49</span>
+<span id="50"> 50</span>
+<span id="51"> 51</span>
+<span id="52"> 52</span>
+<span id="53"> 53</span>
+<span id="54"> 54</span>
+<span id="55"> 55</span>
+<span id="56"> 56</span>
+<span id="57"> 57</span>
+<span id="58"> 58</span>
+<span id="59"> 59</span>
+<span id="60"> 60</span>
+<span id="61"> 61</span>
+<span id="62"> 62</span>
+<span id="63"> 63</span>
+<span id="64"> 64</span>
+<span id="65"> 65</span>
+<span id="66"> 66</span>
+<span id="67"> 67</span>
+<span id="68"> 68</span>
+<span id="69"> 69</span>
+<span id="70"> 70</span>
+<span id="71"> 71</span>
+<span id="72"> 72</span>
+<span id="73"> 73</span>
+<span id="74"> 74</span>
+<span id="75"> 75</span>
+<span id="76"> 76</span>
+<span id="77"> 77</span>
+<span id="78"> 78</span>
+<span id="79"> 79</span>
+<span id="80"> 80</span>
+<span id="81"> 81</span>
+<span id="82"> 82</span>
+<span id="83"> 83</span>
+<span id="84"> 84</span>
+<span id="85"> 85</span>
+<span id="86"> 86</span>
+<span id="87"> 87</span>
+<span id="88"> 88</span>
+<span id="89"> 89</span>
+<span id="90"> 90</span>
+<span id="91"> 91</span>
+<span id="92"> 92</span>
+<span id="93"> 93</span>
+<span id="94"> 94</span>
+<span id="95"> 95</span>
+<span id="96"> 96</span>
+<span id="97"> 97</span>
+<span id="98"> 98</span>
+<span id="99"> 99</span>
+<span id="100">100</span>
+<span id="101">101</span>
+<span id="102">102</span>
+<span id="103">103</span>
+<span id="104">104</span>
+<span id="105">105</span>
+<span id="106">106</span>
+<span id="107">107</span>
+<span id="108">108</span>
+<span id="109">109</span>
+<span id="110">110</span>
+<span id="111">111</span>
+<span id="112">112</span>
+<span id="113">113</span>
+<span id="114">114</span>
+<span id="115">115</span>
+<span id="116">116</span>
+<span id="117">117</span>
+<span id="118">118</span>
+<span id="119">119</span>
+<span id="120">120</span>
+<span id="121">121</span>
+<span id="122">122</span>
+<span id="123">123</span>
+<span id="124">124</span>
+<span id="125">125</span>
+<span id="126">126</span>
+<span id="127">127</span>
+<span id="128">128</span>
+<span id="129">129</span>
+<span id="130">130</span>
+<span id="131">131</span>
+<span id="132">132</span>
+<span id="133">133</span>
+<span id="134">134</span>
+<span id="135">135</span>
+<span id="136">136</span>
+<span id="137">137</span>
+<span id="138">138</span>
+<span id="139">139</span>
+<span id="140">140</span>
+<span id="141">141</span>
+<span id="142">142</span>
+</pre><pre class="rust">
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">r&quot;Register block&quot;</span>]</span>
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RegisterBlock</span> {
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x00..0x5c - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt0</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved1</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x80..0xdc - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt1</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved2</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x100..0x15c - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt2</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved3</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x180..0x1dc - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt3</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved4</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x200..0x25c - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt4</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved5</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x280..0x2dc - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt5</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved6</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x300..0x35c - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt6</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved7</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x380..0x3dc - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt7</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved8</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x400..0x45c - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt8</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved9</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x480..0x4dc - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt9</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved10</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x500..0x55c - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt10</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved11</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x580..0x5dc - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt11</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved12</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x600..0x65c - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt12</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved13</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x680..0x6dc - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt13</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved14</span>: [<span class="ident">u8</span>; <span class="number">0x24</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x700..0x75c - GPIO port registers&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">prt14</span>: <span class="ident">PRT</span>,
+    <span class="ident">_reserved15</span>: [<span class="ident">u8</span>; <span class="number">0x38a4</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x4000 - Interrupt port cause register 0&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">intr_cause0</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">intr_cause0::INTR_CAUSE0_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x4004 - Interrupt port cause register 1&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">intr_cause1</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">intr_cause1::INTR_CAUSE1_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x4008 - Interrupt port cause register 2&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">intr_cause2</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">intr_cause2::INTR_CAUSE2_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x400c - Interrupt port cause register 3&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">intr_cause3</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">intr_cause3::INTR_CAUSE3_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x4010 - Extern power supply detection register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">vdd_active</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">vdd_active::VDD_ACTIVE_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x4014 - Supply detection interrupt register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">vdd_intr</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">vdd_intr::VDD_INTR_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x4018 - Supply detection interrupt mask register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">vdd_intr_mask</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">vdd_intr_mask::VDD_INTR_MASK_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x401c - Supply detection interrupt masked register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">vdd_intr_masked</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">vdd_intr_masked::VDD_INTR_MASKED_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x4020 - Supply detection interrupt set register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">vdd_intr_set</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">vdd_intr_set::VDD_INTR_SET_SPEC</span><span class="op">&gt;</span>,
+}
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">r&quot;Register block&quot;</span>]</span>
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">PRT</span> {
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x00 - Port output data register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">out</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::out::OUT_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x04 - Port output data clear register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">out_clr</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::out_clr::OUT_CLR_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x08 - Port output data set register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">out_set</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::out_set::OUT_SET_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x0c - Port output data invert register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">out_inv</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::out_inv::OUT_INV_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x10 - Port input state register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">in_</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::in_::IN_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x14 - Port interrupt status register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">intr</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::intr::INTR_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x18 - Port interrupt mask register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">intr_mask</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::intr_mask::INTR_MASK_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x1c - Port interrupt masked status register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">intr_masked</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::intr_masked::INTR_MASKED_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x20 - Port interrupt set register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">intr_set</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::intr_set::INTR_SET_SPEC</span><span class="op">&gt;</span>,
+    <span class="ident">_reserved9</span>: [<span class="ident">u8</span>; <span class="number">0x1c</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x40 - Port interrupt configuration register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">intr_cfg</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::intr_cfg::INTR_CFG_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x44 - Port configuration register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">cfg</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::cfg::CFG_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x48 - Port input buffer configuration register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">cfg_in</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::cfg_in::CFG_IN_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x4c - Port output buffer configuration register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">cfg_out</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::cfg_out::CFG_OUT_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x50 - Port SIO configuration register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">cfg_sio</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::cfg_sio::CFG_SIO_SPEC</span><span class="op">&gt;</span>,
+    <span class="ident">_reserved14</span>: [<span class="ident">u8</span>; <span class="number">0x04</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x58 - Port input buffer AUTOLVL configuration register&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">cfg_in_autolvl</span>: <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="self">self</span><span class="ident">::prt::cfg_in_autolvl::CFG_IN_AUTOLVL_SPEC</span><span class="op">&gt;</span>,
+}
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">r&quot;Register block&quot;</span>]</span>
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;GPIO port registers&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">prt</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;INTR_CAUSE0 register accessor: an alias for `Reg&lt;INTR_CAUSE0_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">INTR_CAUSE0</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">intr_cause0::INTR_CAUSE0_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Interrupt port cause register 0&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">intr_cause0</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;INTR_CAUSE1 register accessor: an alias for `Reg&lt;INTR_CAUSE1_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">INTR_CAUSE1</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">intr_cause1::INTR_CAUSE1_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Interrupt port cause register 1&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">intr_cause1</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;INTR_CAUSE2 register accessor: an alias for `Reg&lt;INTR_CAUSE2_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">INTR_CAUSE2</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">intr_cause2::INTR_CAUSE2_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Interrupt port cause register 2&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">intr_cause2</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;INTR_CAUSE3 register accessor: an alias for `Reg&lt;INTR_CAUSE3_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">INTR_CAUSE3</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">intr_cause3::INTR_CAUSE3_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Interrupt port cause register 3&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">intr_cause3</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;VDD_ACTIVE register accessor: an alias for `Reg&lt;VDD_ACTIVE_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">VDD_ACTIVE</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">vdd_active::VDD_ACTIVE_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Extern power supply detection register&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">vdd_active</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;VDD_INTR register accessor: an alias for `Reg&lt;VDD_INTR_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">VDD_INTR</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">vdd_intr::VDD_INTR_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Supply detection interrupt register&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">vdd_intr</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;VDD_INTR_MASK register accessor: an alias for `Reg&lt;VDD_INTR_MASK_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">VDD_INTR_MASK</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">vdd_intr_mask::VDD_INTR_MASK_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Supply detection interrupt mask register&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">vdd_intr_mask</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;VDD_INTR_MASKED register accessor: an alias for `Reg&lt;VDD_INTR_MASKED_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">VDD_INTR_MASKED</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">vdd_intr_masked::VDD_INTR_MASKED_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Supply detection interrupt masked register&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">vdd_intr_masked</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;VDD_INTR_SET register accessor: an alias for `Reg&lt;VDD_INTR_SET_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">VDD_INTR_SET</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Reg</span><span class="op">&lt;</span><span class="ident">vdd_intr_set::VDD_INTR_SET_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Supply detection interrupt set register&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">vdd_intr_set</span>;
+</pre></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="psoc6_01_pac" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script></body></html>

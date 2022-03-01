@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CNT128HZ_R","Field `CNT128HZ` reader - 128Hz counter (msb=2Hz) When SECONDS is written this field will be reset."],["R","Register `TICKS` reader"],["TICKS_SPEC","128Hz tick counter"]]});

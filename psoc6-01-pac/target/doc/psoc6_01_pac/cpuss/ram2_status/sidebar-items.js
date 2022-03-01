@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `RAM2_STATUS` reader"],["RAM2_STATUS_SPEC","RAM 2 status"],["WB_EMPTY_R","Field `WB_EMPTY` reader - See RAM0_STATUS."]]});

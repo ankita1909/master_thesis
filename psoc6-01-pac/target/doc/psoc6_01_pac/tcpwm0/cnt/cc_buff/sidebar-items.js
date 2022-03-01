@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CC_BUFF_SPEC","Counter buffered compare/capture register"],["CC_R","Field `CC` reader - Additional buffer for counter CC register."],["CC_W","Field `CC` writer - Additional buffer for counter CC register."],["R","Register `CC_BUFF` reader"],["W","Register `CC_BUFF` writer"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["IZTAT_ABS_TRIM_R","Field `IZTAT_ABS_TRIM` reader - N/A"],["IZTAT_ABS_TRIM_W","Field `IZTAT_ABS_TRIM` writer - N/A"],["IZTAT_TRIM0_SPEC","IZTAT Trim bits"],["R","Register `IZTAT_TRIM0` reader"],["W","Register `IZTAT_TRIM0` writer"]]});

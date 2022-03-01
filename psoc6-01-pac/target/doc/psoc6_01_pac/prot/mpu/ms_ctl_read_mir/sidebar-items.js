@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["MS_CTL_READ_MIR_SPEC","Master control read mirror"],["PC_R","Field `PC` reader - Read-only mirror of MS_CTL.PC"],["PC_SAVED_R","Field `PC_SAVED` reader - Read-only mirror of MS_CTL.PC_SAVED"],["R","Register `MS_CTL_READ_MIR[%s]` reader"]]});

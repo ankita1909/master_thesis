@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CM0_CA_STATUS1_SPEC","CM0+ cache status 1"],["R","Register `CM0_CA_STATUS1` reader"],["TAG_R","Field `TAG` reader - Cache line address of the cache line specified by CM0_CA_CTL.WAY and CM0_CA_CTL.SET_ADDR."]]});

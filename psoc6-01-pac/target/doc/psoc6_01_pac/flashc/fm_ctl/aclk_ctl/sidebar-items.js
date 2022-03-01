@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ACLK_CTL_SPEC","MPCON clock"],["ACLK_GEN_W","Field `ACLK_GEN` writer - A write to this register generates the clock pulse for HV control registers (mpcon outputs)"],["W","Register `ACLK_CTL` writer"]]});

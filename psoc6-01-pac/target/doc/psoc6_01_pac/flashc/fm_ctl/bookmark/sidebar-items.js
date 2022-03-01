@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["BOOKMARK_R","Field `BOOKMARK` reader - Used by FW. Keeps the Current HV cycle sequence"],["BOOKMARK_SPEC","Bookmark register - keeps the current FW HV seq"],["BOOKMARK_W","Field `BOOKMARK` writer - Used by FW. Keeps the Current HV cycle sequence"],["R","Register `BOOKMARK` reader"],["W","Register `BOOKMARK` writer"]]});

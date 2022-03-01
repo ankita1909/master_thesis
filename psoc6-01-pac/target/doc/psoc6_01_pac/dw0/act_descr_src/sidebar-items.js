@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ACT_DESCR_SRC_SPEC","Active descriptor source"],["DATA_R","Field `DATA` reader - Copy of DESCR_SRC of the currently active descriptor."],["R","Register `ACT_DESCR_SRC` reader"]]});

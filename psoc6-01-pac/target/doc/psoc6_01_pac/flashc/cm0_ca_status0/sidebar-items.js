@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CM0_CA_STATUS0_SPEC","CM0+ cache status 0"],["R","Register `CM0_CA_STATUS0` reader"],["VALID32_R","Field `VALID32` reader - Sixteen valid bits of the cache line specified by CM0_CA_CTL.WAY and CM0_CA_CTL.SET_ADDR."]]});

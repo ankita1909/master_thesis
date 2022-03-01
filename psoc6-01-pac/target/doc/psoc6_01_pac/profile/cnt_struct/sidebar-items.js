@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["cnt","Profile counter value"],["ctl","Profile counter configuration"]],"type":[["CNT","CNT register accessor: an alias for `Reg<CNT_SPEC>`"],["CTL","CTL register accessor: an alias for `Reg<CTL_SPEC>`"]]});

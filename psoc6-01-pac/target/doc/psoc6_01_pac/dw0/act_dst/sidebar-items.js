@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ACT_DST_SPEC","Active destination"],["DST_ADDR_R","Field `DST_ADDR` reader - Current address of destination location."],["R","Register `ACT_DST` reader"]]});

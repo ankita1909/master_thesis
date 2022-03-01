@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CRYPTO_INPUT1_SPEC","Cryptography input 1"],["INPUT_R","Field `INPUT` reader - Four Bytes of the plaintext PT[63:32] = CRYPTO_INPUT1.INPUT[31:0]."],["INPUT_W","Field `INPUT` writer - Four Bytes of the plaintext PT[63:32] = CRYPTO_INPUT1.INPUT[31:0]."],["R","Register `CRYPTO_INPUT1` reader"],["W","Register `CRYPTO_INPUT1` writer"]]});

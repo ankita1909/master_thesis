@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CC_MATCH_R","Field `CC_MATCH` reader - Logical and of corresponding request and mask bits."],["INTR_MASKED_SPEC","Interrupt masked request register"],["R","Register `INTR_MASKED` reader"],["TC_R","Field `TC` reader - Logical and of corresponding request and mask bits."]]});

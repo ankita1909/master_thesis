@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `RESP23_R` reader"],["RESP23_R","Field `RESP23` reader - Command Response These bits reflect 71-40 bits of the SD/eMMC Response"],["RESP23_R_SPEC","Response Register 2/3"]]});

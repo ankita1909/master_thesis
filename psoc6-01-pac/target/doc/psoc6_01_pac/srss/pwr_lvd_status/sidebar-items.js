@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["HVLVD1_OK_R","Field `HVLVD1_OK` reader - HVLVD1 output. 0: below voltage threshold 1: above voltage threshold"],["PWR_LVD_STATUS_SPEC","Low Voltage Detector (LVD) Status Register"],["R","Register `PWR_LVD_STATUS` reader"]]});

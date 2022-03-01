@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["FAST_CA_CMD_SPEC","Fast cache command"],["INV_R","Field `INV` reader - See SLOW_CA_CMD.INV."],["INV_W","Field `INV` writer - See SLOW_CA_CMD.INV."],["R","Register `FAST_CA_CMD` reader"],["W","Register `FAST_CA_CMD` writer"]]});

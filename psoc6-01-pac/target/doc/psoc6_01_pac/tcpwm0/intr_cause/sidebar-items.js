@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["COUNTER_INT_R","Field `COUNTER_INT` reader - Counters interrupt signal active. If the counter is disabled through CTRL.COUNTER_ENABLED, the associated interrupt field is immediately set to ‘0’."],["INTR_CAUSE_SPEC","TCPWM Counter interrupt cause register"],["R","Register `INTR_CAUSE` reader"]]});

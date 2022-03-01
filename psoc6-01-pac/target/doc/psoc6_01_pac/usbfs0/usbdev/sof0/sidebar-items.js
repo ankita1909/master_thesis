@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["FRAME_NUMBER_R","Field `FRAME_NUMBER` reader - It has the lower 8 bits [7:0] of the SOF frame number."],["R","Register `SOF0` reader"],["SOF0_SPEC","Start Of Frame Register"]]});

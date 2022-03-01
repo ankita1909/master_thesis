@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CRYPTO_KEY2_SPEC","Cryptography key 2"],["KEY_W","Field `KEY` writer - Four Bytes of the key KEY[95:64] = CRYPTO_KEY2.KEY[31:0]."],["W","Register `CRYPTO_KEY2` writer"]]});

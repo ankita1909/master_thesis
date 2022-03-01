@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["BFDT8_R","Field `BFDT8` reader - Data Register for EP2 for 1-byte data."],["BFDT8_W","Field `BFDT8` writer - Data Register for EP2 for 1-byte data."],["HOST_EP2_RW1_DR_SPEC","Host Endpoint 2 Data 1-Byte Register"],["R","Register `HOST_EP2_RW1_DR` reader"],["W","Register `HOST_EP2_RW1_DR` writer"]]});

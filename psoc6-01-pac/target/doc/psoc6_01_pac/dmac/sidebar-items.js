@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["active","Active channels"],["ch","Register block DMA controller channel"],["ctl","Control"]],"struct":[["CH","Register block"],["RegisterBlock","Register block"]],"type":[["ACTIVE","ACTIVE register accessor: an alias for `Reg<ACTIVE_SPEC>`"],["CTL","CTL register accessor: an alias for `Reg<CTL_SPEC>`"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CNT_R","Field `CNT` reader - Current value of HSCMP counter"],["R","Register `STAT_HCNT` reader"],["STAT_HCNT_SPEC","Current count of the HSCMP counter"]]});

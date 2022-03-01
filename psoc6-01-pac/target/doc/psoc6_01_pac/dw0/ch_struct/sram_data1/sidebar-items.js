@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DATA_R","Field `DATA` reader - N/A"],["DATA_W","Field `DATA` writer - N/A"],["R","Register `SRAM_DATA1` reader"],["SRAM_DATA1_SPEC","SRAM data 1"],["W","Register `SRAM_DATA1` writer"]]});

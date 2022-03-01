@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ADDR_R","Field `ADDR` reader - N/A"],["DESCR_DST_SPEC","Channel descriptor destination"],["R","Register `DESCR_DST` reader"]]});

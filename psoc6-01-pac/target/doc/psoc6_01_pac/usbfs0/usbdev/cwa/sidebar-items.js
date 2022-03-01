@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CWA_R","Field `CWA` reader - Write Address for Common Area"],["CWA_SPEC","Common Area Write Address *1"],["CWA_W","Field `CWA` writer - Write Address for Common Area"],["R","Register `CWA` reader"],["W","Register `CWA` writer"]]});

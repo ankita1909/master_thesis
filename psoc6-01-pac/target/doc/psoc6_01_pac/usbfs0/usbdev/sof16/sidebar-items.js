@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["FRAME_NUMBER16_R","Field `FRAME_NUMBER16` reader - The frame number (11b)"],["R","Register `SOF16` reader"],["SOF16_SPEC","Start Of Frame Register"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ACT_DESCR_X_CTL_SPEC","Active descriptor X loop control"],["DATA_R","Field `DATA` reader - Copy of DESCR_X_CTL of the currently active descriptor."],["R","Register `ACT_DESCR_X_CTL` reader"]]});

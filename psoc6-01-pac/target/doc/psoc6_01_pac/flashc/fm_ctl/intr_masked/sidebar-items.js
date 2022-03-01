@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["INTR_MASKED_SPEC","Interrupt masked"],["R","Register `INTR_MASKED` reader"],["TIMER_EXPIRED_R","Field `TIMER_EXPIRED` reader - Logical and of corresponding request and mask fields."]]});

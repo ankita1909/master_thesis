@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["COMP0_MASKED_R","Field `COMP0_MASKED` reader - Logical and of corresponding request and mask bits."],["COMP1_MASKED_R","Field `COMP1_MASKED` reader - Logical and of corresponding request and mask bits."],["INTR_MASKED_SPEC","LPCOMP Interrupt request masked"],["R","Register `INTR_MASKED` reader"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CM4_CA_STATUS2_SPEC","CM4 cache status 2"],["LRU_R","Field `LRU` reader - See CM0_CA_STATUS2."],["R","Register `CM4_CA_STATUS2` reader"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `WR_DATA_CTL` reader"],["W","Register `WR_DATA_CTL` writer"],["WIDTH_R","Field `WIDTH` reader - Width of transfer."],["WIDTH_W","Field `WIDTH` writer - Width of transfer."],["WR_DATA_CTL_SPEC","Write data control"]]});

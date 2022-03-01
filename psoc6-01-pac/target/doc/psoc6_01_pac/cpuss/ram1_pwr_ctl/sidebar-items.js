@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["PWR_MODE_A","Power mode."]],"struct":[["PWR_MODE_R","Field `PWR_MODE` reader - Power mode."],["PWR_MODE_W","Field `PWR_MODE` writer - Power mode."],["R","Register `RAM1_PWR_CTL` reader"],["RAM1_PWR_CTL_SPEC","RAM 1 power control"],["VECTKEYSTAT_R","Field `VECTKEYSTAT` reader - See RAM0_PWR_MACRO_CTL."],["W","Register `RAM1_PWR_CTL` writer"]]});

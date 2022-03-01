@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["GP_IN_R","Field `GP_IN` reader - It reflects the value of gp_in ports. NOT USED - ALWAYS READS 0"],["GP_IN_R_SPEC","General Purpose Input register"],["R","Register `GP_IN_R` reader"]]});

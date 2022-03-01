@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `RESULT_VAL2` reader"],["RESULT_VAL2_SPEC","Result CSX accumulation counter value 2"],["VALUE_R","Field `VALUE` reader - Only used in case of Mutual cap with two counters (CSX = config.mutual_cap & config.csx_dual_cnt), this counter counts when csd_sense is low."]]});

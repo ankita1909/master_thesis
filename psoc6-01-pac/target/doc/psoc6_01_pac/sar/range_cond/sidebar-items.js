@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["RANGE_COND_A","Range condition select."]],"struct":[["R","Register `RANGE_COND` reader"],["RANGE_COND_R","Field `RANGE_COND` reader - Range condition select."],["RANGE_COND_SPEC","Global range detect mode register."],["RANGE_COND_W","Field `RANGE_COND` writer - Range condition select."],["W","Register `RANGE_COND` writer"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CMD_RESP_INDX_R","Field `CMD_RESP_INDX` reader - Last Command Response index This field stores the index of the last received command response. Controller updates the value every time a command response is received."],["CQCRI_SPEC","CQ Command response index"],["R","Register `CQCRI` reader"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `VREF_TRIM3` reader"],["VREF_ATTEN_TRIM_R","Field `VREF_ATTEN_TRIM` reader - Obsolete"],["VREF_ATTEN_TRIM_W","Field `VREF_ATTEN_TRIM` writer - Obsolete"],["VREF_TRIM3_SPEC","VREF Trim bits"],["W","Register `VREF_TRIM3` writer"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["ctl","Top level wrapper control"]],"type":[["CTL","CTL register accessor: an alias for `Reg<CTL_SPEC>`"]]});

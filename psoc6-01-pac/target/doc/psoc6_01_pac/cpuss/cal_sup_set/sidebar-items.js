@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CAL_SUP_SET_SPEC","Calibration support set and read"],["DATA_R","Field `DATA` reader - Read without side effect, write 1 to set"],["DATA_W","Field `DATA` writer - Read without side effect, write 1 to set"],["R","Register `CAL_SUP_SET` reader"],["W","Register `CAL_SUP_SET` writer"]]});

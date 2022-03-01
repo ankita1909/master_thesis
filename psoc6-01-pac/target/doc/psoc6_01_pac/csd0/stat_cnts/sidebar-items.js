@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["NUM_CONV_R","Field `NUM_CONV` reader - Current number of conversions remaining when in Sample_* states (note that in AutoZero* states the same down counter is reused to count the cycles)"],["R","Register `STAT_CNTS` reader"],["STAT_CNTS_SPEC","Current status counts"]]});

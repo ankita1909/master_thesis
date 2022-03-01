@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DATA1_SPEC","LCD Pin Data Registers"],["DATA_R","Field `DATA` reader - Bits [4i+3:4i] represent the pin data for pin [i] for COMS 5-8 (COM5 is lsb)."],["DATA_W","Field `DATA` writer - Bits [4i+3:4i] represent the pin data for pin [i] for COMS 5-8 (COM5 is lsb)."],["R","Register `DATA1[%s]` reader"],["W","Register `DATA1[%s]` writer"]]});

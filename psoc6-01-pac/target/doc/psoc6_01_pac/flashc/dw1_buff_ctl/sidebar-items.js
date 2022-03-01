@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DW1_BUFF_CTL_SPEC","Datawire 1 buffer control"],["PREF_EN_R","Field `PREF_EN` reader - See CRYPTO_BUFF_CTL."],["PREF_EN_W","Field `PREF_EN` writer - See CRYPTO_BUFF_CTL."],["R","Register `DW1_BUFF_CTL` reader"],["W","Register `DW1_BUFF_CTL` writer"]]});

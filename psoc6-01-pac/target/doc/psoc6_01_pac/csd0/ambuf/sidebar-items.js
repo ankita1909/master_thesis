@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["PWR_MODE_A","Amux buffer power level"]],"struct":[["AMBUF_SPEC","Reference Generator configuration"],["PWR_MODE_R","Field `PWR_MODE` reader - Amux buffer power level"],["PWR_MODE_W","Field `PWR_MODE` writer - Amux buffer power level"],["R","Register `AMBUF` reader"],["W","Register `AMBUF` writer"]]});

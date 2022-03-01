@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["clock_ctl","Clock control"],["sl_ctl","Slave control"]],"type":[["CLOCK_CTL","CLOCK_CTL register accessor: an alias for `Reg<CLOCK_CTL_SPEC>`"],["SL_CTL","SL_CTL register accessor: an alias for `Reg<SL_CTL_SPEC>`"]]});

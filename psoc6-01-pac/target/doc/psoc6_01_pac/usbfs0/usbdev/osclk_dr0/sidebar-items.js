@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ADDER_R","Field `ADDER` reader - These bits return the lower 8 bits of the oscillator locking circuits adder output."],["OSCLK_DR0_SPEC","Oscillator lock data register 0"],["R","Register `OSCLK_DR0` reader"]]});

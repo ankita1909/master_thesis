@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `SATURATE_INTR_MASKED` reader"],["SATURATE_INTR_MASKED_SPEC","Saturate interrupt masked request register"],["SATURATE_MASKED_R","Field `SATURATE_MASKED` reader - Logical and of corresponding request and mask bits."]]});

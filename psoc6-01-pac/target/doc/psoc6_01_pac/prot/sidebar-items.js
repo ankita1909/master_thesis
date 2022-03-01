@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["mpu","Register block MPU"],["smpu","Register block SMPU"]],"struct":[["MPU","Register block"],["RegisterBlock","Register block"],["SMPU","Register block"]]});

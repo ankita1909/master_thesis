@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DESCR_STATUS_SPEC","Channel descriptor status"],["R","Register `DESCR_STATUS` reader"],["VALID_R","Field `VALID` reader - Indicates whether the descriptor information present in DESCR_CTL, DESCR_SRC, DESCR_DST, DESCR_X_SIZE, DESCR_X_INCR, DESCR_Y_SIZE, DESCR_Y_INCR, DESCR_NEXT status registers is valid or not."]]});

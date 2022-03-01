@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DATA0_SPEC","IPC data 0"],["DATA_R","Field `DATA` reader - This field holds a 32-bit data element that is associated with the IPC structure."],["DATA_W","Field `DATA` writer - This field holds a 32-bit data element that is associated with the IPC structure."],["R","Register `DATA0` reader"],["W","Register `DATA0` writer"]]});

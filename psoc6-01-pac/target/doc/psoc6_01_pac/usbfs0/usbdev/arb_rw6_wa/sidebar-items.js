@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ARB_RW6_WA_SPEC","Endpoint Write Address value *1, *2"],["R","Register `ARB_RW6_WA` reader"],["W","Register `ARB_RW6_WA` writer"],["WA_R","Field `WA` reader - Write Address for EP"],["WA_W","Field `WA` writer - Write Address for EP"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["ppu_fx","Register block Fixed protection structure pair"],["ppu_pr","Register block Programmable protection structure pair"]],"struct":[["PPU_FX","Register block"],["PPU_PR","Register block"],["RegisterBlock","Register block"]]});

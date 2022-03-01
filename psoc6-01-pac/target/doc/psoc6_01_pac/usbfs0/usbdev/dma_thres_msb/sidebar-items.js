@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DMA_THRES_MSB_SPEC","DMA Burst / Threshold Configuration"],["DMA_THS_MSB_R","Field `DMA_THS_MSB` reader - DMA Threshold count"],["DMA_THS_MSB_W","Field `DMA_THS_MSB` writer - DMA Threshold count"],["R","Register `DMA_THRES_MSB` reader"],["W","Register `DMA_THRES_MSB` writer"]]});

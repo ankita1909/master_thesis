@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ACT_DESCR_NEXT_PTR_SPEC","Active descriptor next pointer"],["ADDR_R","Field `ADDR` reader - Copy of DESCR_NEXT_PTR of the currently active descriptor."],["R","Register `ACT_DESCR_NEXT_PTR` reader"]]});
