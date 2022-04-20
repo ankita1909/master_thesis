@@ -1,0 +1,499 @@
+Component: ARM Compiler 6.16 Tool: armlink [5dfeaa00]
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x100022e1
+
+  Load Region LR_IROM (Base: 0x10000000, Size: 0x00001850, Max: 0x00002000, ABSOLUTE)
+
+    Execution Region .cy_m0p_image (Base: 0x10000000, Size: 0x00001850, Max: 0x00002000, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x10000000   0x00001850   Data   RO         4856    .cy_m0p_image       psoc6_02_cm0p_sleep.o
+
+
+
+  Load Region LR_IROM1 (Base: 0x10002000, Size: 0x000047a8, Max: 0x001fe000, ABSOLUTE)
+
+    Execution Region ER_RAM_VECTORS (Base: 0x08002000, Size: 0x000002e0, Max: 0xffffffff, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08002000   0x000002e0   Zero   RW            4    RESET_RAM           startup_psoc6_02_cm4.o
+
+
+    Execution Region RW_RAM_DATA (Base: 0x080022e0, Size: 0x000005b4, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x080022e0   0x00000004   Data   RW          205    .ARM.use_no_argv    main.o
+    0x080022e4   0x00000008   Data   RW         3343    .cy_sharedmem       cy_ipc_sema.o
+    0x080022ec   0x00000004   Data   RW         5028    .data               c_w.l(stdio_streams.o)
+    0x080022f0   0x00000004   Data   RW         5029    .data               c_w.l(stdio_streams.o)
+    0x080022f4   0x00000004   Data   RW         5030    .data               c_w.l(stdio_streams.o)
+    0x080022f8   0x00000018   Data   RW          176    .data..L_MergedGlobals  system_psoc6_cm4.o
+    0x08002310   0x00000078   Data   RW         2047    .data..L_MergedGlobals  cyhal_syspm.o
+    0x08002388   0x00000008   Data   RW         2043    .data._cyhal_syspm_cb_params_deepsleep  cyhal_syspm.o
+    0x08002390   0x00000008   Data   RW         2044    .data._cyhal_syspm_cb_params_hibernate  cyhal_syspm.o
+    0x08002398   0x00000008   Data   RW         2045    .data._cyhal_syspm_cb_params_lp  cyhal_syspm.o
+    0x080023a0   0x00000008   Data   RW         2042    .data._cyhal_syspm_cb_params_sleep  cyhal_syspm.o
+    0x080023a8   0x00000008   Data   RW         2046    .data._cyhal_syspm_cb_params_ulp  cyhal_syspm.o
+    0x080023b0   0x0000001c   Data   RW         2039    .data._cyhal_syspm_cb_ulp  cyhal_syspm.o
+    0x080023cc   0x0000001c   Data   RW          189    .data.cybsp_register_sysclk_pm_callback.cybsp_sysclk_pm_callback  cybsp.o
+    0x080023e8   0x00000054   Zero   RW         5025    .bss                c_w.l(stdio_streams.o)
+    0x0800243c   0x00000054   Zero   RW         5026    .bss                c_w.l(stdio_streams.o)
+    0x08002490   0x00000054   Zero   RW         5027    .bss                c_w.l(stdio_streams.o)
+    0x080024e4   0x00000060   Zero   RW         5234    .bss                c_w.l(libspace.o)
+    0x08002544   0x0000006c   Zero   RW         1823    .bss..L_MergedGlobals  cyhal_scb_common.o
+    0x080025b0   0x00000014   Zero   RW         4419    .bss..L_MergedGlobals  cy_sysclk.o
+    0x080025c4   0x00000058   Zero   RW         4619    .bss..L_MergedGlobals  cy_syspm.o
+    0x0800261c   0x00000004   Zero   RW         2048    .bss..L_MergedGlobals.2  cyhal_syspm.o
+    0x08002620   0x00000014   Zero   RW         4658    .bss.Cy_SysTick_Callbacks  cy_systick.o
+    0x08002634   0x00000160   Zero   RW          172    .bss.SystemInit.systemIpcPipeEpArray  system_psoc6_cm4.o
+    0x08002794   0x00000020   Zero   RW          173    .bss.SystemInit.systemIpcPipeSysCbArray  system_psoc6_cm4.o
+    0x080027b4   0x00000004   Zero   RW         2041    .bss._cyhal_syspm_supply_voltages  cyhal_syspm.o
+    0x080027b8   0x00000004   Zero   RW         2405    .bss.cy_device      cy_device.o
+    0x080027bc   0x00000004   Zero   RW         3322    .bss.cy_ipc_pipe_epArray  cy_ipc_pipe.o
+    0x080027c0   0x000000a0   Zero   RW         4895    .bss.cy_retarget_io_uart_obj  cy_retarget_io.o
+    0x08002860   0x00000004   Zero   RW         3344    .bss.cy_semaIpcStruct  cy_ipc_sema.o
+    0x08002864   0x00000008   Zero   RW          188    .bss.cybsp_register_sysclk_pm_callback.cybsp_sysclk_pm_callback_param  cybsp.o
+    0x0800286c   0x00000027   Zero   RW         1457    .bss.cyhal_used     cyhal_hwmgr.o
+
+
+    Execution Region RW_IRAM1 (Base: 0x08002894, Size: 0x00000094, Max: 0xffffffff, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08002894   0x00000094   Data   RW         4480    .noinit             cy_syslib.o
+
+
+    Execution Region ARM_LIB_HEAP (Base: 0x08002928, Size: 0x000fbed8, Max: 0x000fbed8, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08002928   0x000fbed8   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
+
+
+    Execution Region ARM_LIB_STACK (Base: 0x080fe800, Size: 0x00001000, Max: 0x00001000, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x080fe800   0x00001000   Zero   RW            2    ARM_LIB_STACK.bss   anon$$obj.o
+
+
+    Execution Region ER_FLASH_VECTORS (Base: 0x10002000, Size: 0x000002e0, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x10002000   0x000002e0   Data   RO            3    RESET               startup_psoc6_02_cm4.o
+
+
+    Execution Region ER_FLASH_CODE (Base: 0x100022e0, Size: 0x0000432c, Max: 0xffffffff, ABSOLUTE, FIXED)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x100022e0   0x00000008   Code   RO         5004  * !!!main             c_w.l(__main.o)
+    0x100022e8   0x00000034   Code   RO         5352    !!!scatter          c_w.l(__scatter.o)
+    0x1000231c   0x0000003a   Code   RO         5350    !!dczerorl          c_w.l(__dczerorl.o)
+    0x10002356   0x00000002   PAD
+    0x10002358   0x0000001a   Code   RO         5354    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x10002372   0x00000002   PAD
+    0x10002374   0x0000001c   Code   RO         5356    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x10002390   0x00000002   Code   RO         5216    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x10002392   0x00000004   Code   RO         5036    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
+    0x10002396   0x00000000   Code   RO         5039    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x10002396   0x00000008   Code   RO         5285    .ARM.Collect$$libinit$$00000008  c_w.l(libinit5.o)
+    0x1000239e   0x00000000   Code   RO         5042    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x1000239e   0x00000000   Code   RO         5044    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x1000239e   0x00000000   Code   RO         5046    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x1000239e   0x00000000   Code   RO         5049    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x1000239e   0x00000000   Code   RO         5051    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x1000239e   0x00000000   Code   RO         5053    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x1000239e   0x00000000   Code   RO         5055    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x1000239e   0x00000000   Code   RO         5057    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x1000239e   0x00000000   Code   RO         5059    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x1000239e   0x00000000   Code   RO         5061    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x1000239e   0x00000000   Code   RO         5063    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x1000239e   0x00000000   Code   RO         5065    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x1000239e   0x00000000   Code   RO         5067    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x1000239e   0x00000004   Code   RO         5068    .ARM.Collect$$libinit$$00000024  c_w.l(libinit2.o)
+    0x100023a2   0x00000000   Code   RO         5069    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x100023a2   0x00000000   Code   RO         5073    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x100023a2   0x00000000   Code   RO         5075    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x100023a2   0x00000000   Code   RO         5077    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x100023a2   0x00000004   Code   RO         5078    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
+    0x100023a6   0x00000000   Code   RO         5079    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x100023a6   0x00000002   Code   RO         5080    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x100023a8   0x00000008   Code   RO         5286    .ARM.Collect$$libinit$$00002719  c_w.l(libinit5.o)
+    0x100023b0   0x00000002   Code   RO         5331    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x100023b2   0x00000000   Code   RO         5218    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x100023b2   0x00000004   Code   RO         5219    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
+    0x100023b6   0x00000000   Code   RO         5220    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x100023b6   0x00000000   Code   RO         5223    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x100023b6   0x00000000   Code   RO         5226    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x100023b6   0x00000000   Code   RO         5228    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x100023b6   0x00000000   Code   RO         5231    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x100023b6   0x00000002   Code   RO         5232    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x100023b8   0x00000000   Code   RO         5014    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x100023b8   0x00000000   Code   RO         5086    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x100023b8   0x00000004   Code   RO         5100    .ARM.Collect$$rtentry$$00000007  c_w.l(__rtentry7.o)
+    0x100023bc   0x00000000   Code   RO         5088    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x100023bc   0x00000004   Code   RO         5089    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x100023c0   0x00000000   Code   RO         5091    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x100023c0   0x00000008   Code   RO         5092    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x100023c8   0x00000004   Code   RO         5101    .ARM.Collect$$rtentry$$00002718  c_w.l(__rtentry7.o)
+    0x100023cc   0x00000002   Code   RO         5240    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x100023ce   0x00000000   Code   RO         5291    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x100023ce   0x00000004   Code   RO         5292    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x100023d2   0x00000006   Code   RO         5293    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x100023d8   0x00000074   Code   RO            5    .text               startup_psoc6_02_cm4.o
+    0x1000244c   0x00000004   PAD
+    0x10002450   0x0000001e   Code   RO          212    .text               cy_syslib_mdk.o
+    0x1000246e   0x00000002   Code   RO         4929    .text               c_w.l(use_no_semi_2.o)
+    0x10002470   0x000000f0   Code   RO         4931    .text               c_w.l(lludivv7m.o)
+    0x10002560   0x00000018   Code   RO         4937    .text               c_w.l(noretval__2printf.o)
+    0x10002578   0x0000004e   Code   RO         4945    .text               c_w.l(rt_memclr_w.o)
+    0x100025c6   0x00000006   Code   RO         5002    .text               c_w.l(heapauxi.o)
+    0x100025cc   0x00000024   Code   RO         5009    .text               c_w.l(init_aeabi.o)
+    0x100025f0   0x00000002   Code   RO         5012    .text               c_w.l(use_no_semi.o)
+    0x100025f2   0x00000002   PAD
+    0x100025f4   0x00000024   Code   RO         5023    .text               c_w.l(_printf_char_file.o)
+    0x10002618   0x00000030   Code   RO         5107    .text               c_w.l(_printf_char_common.o)
+    0x10002648   0x00000008   Code   RO         5109    .text               c_w.l(ferror.o)
+    0x10002650   0x00000138   Code   RO         5111    .text               c_w.l(initio.o)
+    0x10002788   0x0000004e   Code   RO         5130    .text               c_w.l(h1_free.o)
+    0x100027d6   0x00000028   Code   RO         5184    .text               c_w.l(__printf_nopercent.o)
+    0x100027fe   0x00000046   Code   RO         5186    .text               c_w.l(setvbuf.o)
+    0x10002844   0x000000f0   Code   RO         5189    .text               c_w.l(fopen.o)
+    0x10002934   0x0000004c   Code   RO         5191    .text               c_w.l(fclose.o)
+    0x10002980   0x00000012   Code   RO         5197    .text               c_w.l(exit.o)
+    0x10002992   0x0000000e   Code   RO         5203    .text               c_w.l(defsig_rtred_outer.o)
+    0x100029a0   0x00000008   Code   RO         5247    .text               c_w.l(rt_heap_descriptor_intlibspace.o)
+    0x100029a8   0x00000004   Code   RO         5249    .text               c_w.l(hguard.o)
+    0x100029ac   0x0000008a   Code   RO         5253    .text               c_w.l(init_alloc.o)
+    0x10002a36   0x0000005e   Code   RO         5259    .text               c_w.l(h1_alloc.o)
+    0x10002a94   0x000000f8   Code   RO         5271    .text               c_w.l(fseek.o)
+    0x10002b8c   0x000000f0   Code   RO         5273    .text               c_w.l(stdio.o)
+    0x10002c7c   0x0000000a   Code   RO         5275    .text               c_w.l(defsig_exit.o)
+    0x10002c86   0x00000002   PAD
+    0x10002c88   0x00000034   Code   RO         5279    .text               c_w.l(defsig_rtred_inner.o)
+    0x10002cbc   0x0000000e   Code   RO         5281    .text               c_w.l(defsig_rtmem_outer.o)
+    0x10002cca   0x00000000   Code   RO         5297    .text               c_w.l(maybetermalloc1.o)
+    0x10002cca   0x0000000e   Code   RO         5299    .text               c_w.l(h1_init.o)
+    0x10002cd8   0x00000034   Code   RO         5301    .text               c_w.l(h1_extend.o)
+    0x10002d0c   0x00000042   Code   RO         5307    .text               c_w.l(ftell.o)
+    0x10002d4e   0x00000032   Code   RO         5311    .text               c_w.l(defsig_general.o)
+    0x10002d80   0x00000050   Code   RO         5313    .text               c_w.l(defsig_rtmem_inner.o)
+    0x10002dd0   0x00000008   Code   RO         5323    .text               c_w.l(rt_errno_addr_intlibspace.o)
+    0x10002dd8   0x00000004   Code   RO           20    .text.AES128_ECB_encrypt  aes_lib.o
+    0x10002ddc   0x000000c4   Code   RO         3194    .text.Cy_GPIO_Pin_FastInit  cy_gpio.o
+    0x10002ea0   0x000002ea   Code   RO         3178    .text.Cy_GPIO_Pin_Init  cy_gpio.o
+    0x1000318a   0x00000002   PAD
+    0x1000318c   0x0000002e   Code   RO         3284    .text.Cy_IPC_Drv_LockRelease  cy_ipc_drv.o
+    0x100031ba   0x00000002   PAD
+    0x100031bc   0x0000002a   Code   RO         3288    .text.Cy_IPC_Drv_ReadMsgWord  cy_ipc_drv.o
+    0x100031e6   0x00000002   PAD
+    0x100031e8   0x00000022   Code   RO         3286    .text.Cy_IPC_Drv_SendMsgWord  cy_ipc_drv.o
+    0x1000320a   0x00000002   PAD
+    0x1000320c   0x00000012   Code   RO         3302    .text.Cy_IPC_Pipe_Config  cy_ipc_pipe.o
+    0x1000321e   0x00000002   PAD
+    0x10003220   0x000000c8   Code   RO         3316    .text.Cy_IPC_Pipe_ExecCallback  cy_ipc_pipe.o
+    0x100032e8   0x00000026   Code   RO         3314    .text.Cy_IPC_Pipe_ExecuteCallback  cy_ipc_pipe.o
+    0x1000330e   0x00000002   PAD
+    0x10003310   0x000001d8   Code   RO         3304    .text.Cy_IPC_Pipe_Init  cy_ipc_pipe.o
+    0x100034e8   0x000000c4   Code   RO         3331    .text.Cy_IPC_Sema_Init  cy_ipc_sema.o
+    0x100035ac   0x0000000c   Code   RO         2399    .text.Cy_PDL_Init   cy_device.o
+    0x100035b8   0x00000028   Code   RO         3459    .text.Cy_Prot_GetActivePC  cy_prot.o
+    0x100035e0   0x00000022   Code   RO         3694    .text.Cy_SCB_Write  cy_scb_common.o
+    0x10003602   0x00000002   PAD
+    0x10003604   0x00000016   Code   RO         4246    .text.Cy_SysClk_ClkBakSetSource  cy_sysclk.o
+    0x1000361a   0x00000002   PAD
+    0x1000361c   0x00000018   Code   RO         4276    .text.Cy_SysClk_ClkFastGetDivider  cy_sysclk.o
+    0x10003634   0x0000001e   Code   RO         4278    .text.Cy_SysClk_ClkFastSetDivider  cy_sysclk.o
+    0x10003652   0x00000002   PAD
+    0x10003654   0x0000004c   Code   RO         4268    .text.Cy_SysClk_ClkHfGetFrequency  cy_sysclk.o
+    0x100036a0   0x00000026   Code   RO         4288    .text.Cy_SysClk_ClkHfGetSource  cy_sysclk.o
+    0x100036c6   0x00000002   PAD
+    0x100036c8   0x00000036   Code   RO         4290    .text.Cy_SysClk_ClkHfSetDivider  cy_sysclk.o
+    0x100036fe   0x00000002   PAD
+    0x10003700   0x00000038   Code   RO         4286    .text.Cy_SysClk_ClkHfSetSource  cy_sysclk.o
+    0x10003738   0x00000018   Code   RO         4264    .text.Cy_SysClk_ClkLfSetSource  cy_sysclk.o
+    0x10003750   0x0000010a   Code   RO         4244    .text.Cy_SysClk_ClkPathGetFrequency  cy_sysclk.o
+    0x1000385a   0x00000002   PAD
+    0x1000385c   0x00000038   Code   RO         4360    .text.Cy_SysClk_ClkPathGetSource  cy_sysclk.o
+    0x10003894   0x0000005c   Code   RO         4358    .text.Cy_SysClk_ClkPathSetSource  cy_sysclk.o
+    0x100038f0   0x00000016   Code   RO         4270    .text.Cy_SysClk_ClkPeriGetDivider  cy_sysclk.o
+    0x10003906   0x00000002   PAD
+    0x10003908   0x0000001e   Code   RO         4272    .text.Cy_SysClk_ClkPeriSetDivider  cy_sysclk.o
+    0x10003926   0x00000002   PAD
+    0x10003928   0x0000001e   Code   RO         4226    .text.Cy_SysClk_ClkSlowSetDivider  cy_sysclk.o
+    0x10003946   0x00000002   PAD
+    0x10003948   0x000003a2   Code   RO         4412    .text.Cy_SysClk_DeepSleepCallback  cy_sysclk.o
+    0x10003cea   0x00000002   PAD
+    0x10003cec   0x00000026   Code   RO         4372    .text.Cy_SysClk_FllDisable  cy_sysclk.o
+    0x10003d12   0x00000002   PAD
+    0x10003d14   0x000000ca   Code   RO         4380    .text.Cy_SysClk_FllEnable  cy_sysclk.o
+    0x10003dde   0x00000002   PAD
+    0x10003de0   0x00000124   Code   RO         4364    .text.Cy_SysClk_FllGetFrequency  cy_sysclk.o
+    0x10003f04   0x000000f8   Code   RO         4376    .text.Cy_SysClk_FllManualConfigure  cy_sysclk.o
+    0x10003ffc   0x0000002a   Code   RO         4340    .text.Cy_SysClk_IloDisable  cy_sysclk.o
+    0x10004026   0x00000002   PAD
+    0x10004028   0x00000012   Code   RO         4336    .text.Cy_SysClk_IloEnable  cy_sysclk.o
+    0x1000403a   0x00000002   PAD
+    0x1000403c   0x00000014   Code   RO         4342    .text.Cy_SysClk_IloHibernateOn  cy_sysclk.o
+    0x10004050   0x00000066   Code   RO         4208    .text.Cy_SysClk_PeriphAssignDivider  cy_sysclk.o
+    0x100040b6   0x00000002   PAD
+    0x100040b8   0x00000058   Code   RO         4214    .text.Cy_SysClk_PeriphDisableDivider  cy_sysclk.o
+    0x10004110   0x00000078   Code   RO         4212    .text.Cy_SysClk_PeriphEnableDivider  cy_sysclk.o
+    0x10004188   0x0000006e   Code   RO         4200    .text.Cy_SysClk_PeriphSetDivider  cy_sysclk.o
+    0x100041f6   0x00000002   PAD
+    0x100041f8   0x0000004c   Code   RO         4388    .text.Cy_SysClk_PllDisable  cy_sysclk.o
+    0x10004244   0x000000d0   Code   RO         4396    .text.Cy_SysClk_PllEnable  cy_sysclk.o
+    0x10004314   0x00000170   Code   RO         4366    .text.Cy_SysClk_PllGetFrequency  cy_sysclk.o
+    0x10004484   0x000000a0   Code   RO         4394    .text.Cy_SysClk_PllManualConfigure  cy_sysclk.o
+    0x10004524   0x0000004c   Code   RO         4312    .text.Cy_SysClk_WcoEnable  cy_sysclk.o
+    0x10004570   0x00000078   Code   RO         4432    .text.Cy_SysInt_Init  cy_sysint.o
+    0x100045e8   0x00000006   Code   RO          167    .text.Cy_SysIpcPipeIsrCm4  system_psoc6_cm4.o
+    0x100045ee   0x00000002   PAD
+    0x100045f0   0x00000010   Code   RO         4450    .text.Cy_SysLib_DelayUs  cy_syslib.o
+    0x10004600   0x00000094   Code   RO         4470    .text.Cy_SysLib_FaultHandler  cy_syslib.o
+    0x10004694   0x00000014   Code   RO         4478    .text.Cy_SysLib_GetDevice  cy_syslib.o
+    0x100046a8   0x00000012   Code   RO         4476    .text.Cy_SysLib_GetDeviceRevision  cy_syslib.o
+    0x100046ba   0x00000002   PAD
+    0x100046bc   0x00000034   Code   RO         4464    .text.Cy_SysLib_GetResetReason  cy_syslib.o
+    0x100046f0   0x00000004   Code   RO         4472    .text.Cy_SysLib_ProcessingFault  cy_syslib.o
+    0x100046f4   0x0000001a   Code   RO         4462    .text.Cy_SysLib_ResetBackupDomain  cy_syslib.o
+    0x1000470e   0x00000002   PAD
+    0x10004710   0x000000ca   Code   RO         4474    .text.Cy_SysLib_SetWaitStates  cy_syslib.o
+    0x100047da   0x00000002   PAD
+    0x100047dc   0x0000026c   Code   RO         4513    .text.Cy_SysPm_LdoSetVoltage  cy_syspm.o
+    0x10004a48   0x00000028   Code   RO         4597    .text.Cy_SysPm_PmicDisableOutput  cy_syspm.o
+    0x10004a70   0x00000012   Code   RO         4601    .text.Cy_SysPm_PmicUnlock  cy_syspm.o
+    0x10004a82   0x00000002   PAD
+    0x10004a84   0x000000da   Code   RO         4549    .text.Cy_SysPm_RegisterCallback  cy_syspm.o
+    0x10004b5e   0x00000002   PAD
+    0x10004b60   0x000000a8   Code   RO         4521    .text.Cy_SysPm_SystemSetNormalRegulatorCurrent  cy_syspm.o
+    0x10004c08   0x000000e8   Code   RO         4531    .text.Cy_SysPm_WriteVoltageBitForFlash  cy_syspm.o
+    0x10004cf0   0x0000001a   Code   RO         4648    .text.Cy_SysTick_Enable  cy_systick.o
+    0x10004d0a   0x00000002   PAD
+    0x10004d0c   0x000000a6   Code   RO         4642    .text.Cy_SysTick_Init  cy_systick.o
+    0x10004db2   0x00000002   PAD
+    0x10004db4   0x00000046   Code   RO         4644    .text.Cy_SysTick_ServiceCallbacks  cy_systick.o
+    0x10004dfa   0x00000002   PAD
+    0x10004dfc   0x00000002   Code   RO          163    .text.Cy_SystemInit  system_psoc6_cm4.o
+    0x10004dfe   0x00000002   PAD
+    0x10004e00   0x00000026   Code   RO          169    .text.Cy_SystemInitFpuEnable  system_psoc6_cm4.o
+    0x10004e26   0x00000002   PAD
+    0x10004e28   0x00000060   Code   RO          165    .text.SystemCoreClockUpdate  system_psoc6_cm4.o
+    0x10004e88   0x00000090   Code   RO          161    .text.SystemInit    system_psoc6_cm4.o
+    0x10004f18   0x0000000c   Code   RO         1814    .text._cyhal_scb_pm_transition_pending  cyhal_scb_common.o
+    0x10004f24   0x000002ac   Code   RO         2037    .text._cyhal_syspm_common_cb  cyhal_syspm.o
+    0x100051d0   0x00000016   Code   RO         2348    .text._cyhal_utils_convert_pdltohal_pm_mode  cyhal_utils_psoc.o
+    0x100051e6   0x00000002   PAD
+    0x100051e8   0x00000004   Code   RO         4870    .text._sys_close    cy_retarget_io.o
+    0x100051ec   0x00000002   Code   RO         4884    .text._sys_exit     cy_retarget_io.o
+    0x100051ee   0x00000002   PAD
+    0x100051f0   0x00000004   Code   RO         4882    .text._sys_flen     cy_retarget_io.o
+    0x100051f4   0x00000004   Code   RO         4878    .text._sys_istty    cy_retarget_io.o
+    0x100051f8   0x00000004   Code   RO         4868    .text._sys_open     cy_retarget_io.o
+    0x100051fc   0x00000006   Code   RO         4880    .text._sys_seek     cy_retarget_io.o
+    0x10005202   0x00000002   PAD
+    0x10005204   0x00000004   Code   RO         4872    .text._sys_write    cy_retarget_io.o
+    0x10005208   0x00000002   Code   RO         4876    .text._ttywrch      cy_retarget_io.o
+    0x1000520a   0x00000002   PAD
+    0x1000520c   0x00000178   Code   RO           10    .text.addRoundKey   aes_lib.o
+    0x10005384   0x00000046   Code   RO          186    .text.cybsp_init    cybsp.o
+    0x100053ca   0x00000002   PAD
+    0x100053cc   0x00000002   Code   RO          141    .text.cycfg_ClockStartupError  cycfg_system.o
+    0x100053ce   0x00000002   PAD
+    0x100053d0   0x00000004   Code   RO         1447    .text.cyhal_hwmgr_init  cyhal_hwmgr.o
+    0x100053d4   0x00000206   Code   RO         1449    .text.cyhal_hwmgr_reserve  cyhal_hwmgr.o
+    0x100055da   0x00000002   PAD
+    0x100055dc   0x00000050   Code   RO         2017    .text.cyhal_syspm_init  cyhal_syspm.o
+    0x1000562c   0x00000012   Code   RO         2033    .text.cyhal_syspm_set_supply_voltage  cyhal_syspm.o
+    0x1000563e   0x00000002   PAD
+    0x10005640   0x00000028   Code   RO         2186    .text.cyhal_uart_putc  cyhal_uart.o
+    0x10005668   0x0000001e   Code   RO         4864    .text.fputc         cy_retarget_io.o
+    0x10005686   0x00000002   PAD
+    0x10005688   0x0000031c   Code   RO           18    .text.gen_cipher    aes_lib.o
+    0x100059a4   0x0000001a   Code   RO           32    .text.init_cycfg_all  cycfg.o
+    0x100059be   0x00000002   PAD
+    0x100059c0   0x0000002c   Code   RO           56    .text.init_cycfg_clocks  cycfg_clocks.o
+    0x100059ec   0x0000000a   Code   RO           66    .text.init_cycfg_peripherals  cycfg_peripherals.o
+    0x100059f6   0x00000002   PAD
+    0x100059f8   0x00000122   Code   RO           75    .text.init_cycfg_pins  cycfg_pins.o
+    0x10005b1a   0x00000002   PAD
+    0x10005b1c   0x00000010   Code   RO          133    .text.init_cycfg_routing  cycfg_routing.o
+    0x10005b2c   0x00000222   Code   RO          143    .text.init_cycfg_system  cycfg_system.o
+    0x10005d4e   0x00000002   PAD
+    0x10005d50   0x000000d6   Code   RO            8    .text.keyExpansion  aes_lib.o
+    0x10005e26   0x00000002   PAD
+    0x10005e28   0x000000ee   Code   RO          201    .text.main          main.o
+    0x10005f16   0x00000002   PAD
+    0x10005f18   0x000001c2   Code   RO           16    .text.mixColumns    aes_lib.o
+    0x100060da   0x0000001a   Code   RO         5119    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x100060f4   0x00000004   Data   RO         5121    .constdata          c_w.l(sys_io_names.o)
+    0x100060f8   0x00000004   Data   RO         5122    .constdata          c_w.l(sys_io_names.o)
+    0x100060fc   0x00000004   Data   RO         5123    .constdata          c_w.l(sys_io_names.o)
+    0x10006100   0x00000003   Data   RO           90    .rodata.CYBSP_CINA_obj  cycfg_pins.o
+    0x10006103   0x00000003   Data   RO           92    .rodata.CYBSP_CINB_obj  cycfg_pins.o
+    0x10006106   0x00000003   Data   RO           94    .rodata.CYBSP_CMOD_obj  cycfg_pins.o
+    0x10006109   0x00000003   Data   RO           96    .rodata.CYBSP_CSD_BTN0_obj  cycfg_pins.o
+    0x1000610c   0x00000003   Data   RO           98    .rodata.CYBSP_CSD_BTN1_obj  cycfg_pins.o
+    0x1000610f   0x00000003   Data   RO           58    .rodata.CYBSP_CSD_CLK_DIV_obj  cycfg_clocks.o
+    0x10006112   0x00000003   Data   RO          100    .rodata.CYBSP_CSD_SLD0_obj  cycfg_pins.o
+    0x10006115   0x00000003   Data   RO          102    .rodata.CYBSP_CSD_SLD1_obj  cycfg_pins.o
+    0x10006118   0x00000003   Data   RO          104    .rodata.CYBSP_CSD_SLD2_obj  cycfg_pins.o
+    0x1000611b   0x00000003   Data   RO          106    .rodata.CYBSP_CSD_SLD3_obj  cycfg_pins.o
+    0x1000611e   0x00000003   Data   RO          108    .rodata.CYBSP_CSD_SLD4_obj  cycfg_pins.o
+    0x10006121   0x00000003   Data   RO           82    .rodata.CYBSP_CSD_TX_obj  cycfg_pins.o
+    0x10006124   0x00000034   Data   RO           87    .rodata.CYBSP_SWDCK_config  cycfg_pins.o
+    0x10006158   0x00000003   Data   RO           88    .rodata.CYBSP_SWDCK_obj  cycfg_pins.o
+    0x1000615b   0x00000001   PAD
+    0x1000615c   0x00000034   Data   RO           85    .rodata.CYBSP_SWDIO_config  cycfg_pins.o
+    0x10006190   0x00000003   Data   RO           86    .rodata.CYBSP_SWDIO_obj  cycfg_pins.o
+    0x10006193   0x00000001   PAD
+    0x10006194   0x00000034   Data   RO           83    .rodata.CYBSP_SWO_config  cycfg_pins.o
+    0x100061c8   0x00000003   Data   RO           84    .rodata.CYBSP_SWO_obj  cycfg_pins.o
+    0x100061cb   0x00000001   PAD
+    0x100061cc   0x00000034   Data   RO           77    .rodata.CYBSP_WCO_IN_config  cycfg_pins.o
+    0x10006200   0x00000003   Data   RO           78    .rodata.CYBSP_WCO_IN_obj  cycfg_pins.o
+    0x10006203   0x00000001   PAD
+    0x10006204   0x00000034   Data   RO           79    .rodata.CYBSP_WCO_OUT_config  cycfg_pins.o
+    0x10006238   0x00000003   Data   RO           80    .rodata.CYBSP_WCO_OUT_obj  cycfg_pins.o
+    0x1000623b   0x000000ff   Data   RO           22    .rodata.Rcon        aes_lib.o
+    0x1000633a   0x00000002   PAD
+    0x1000633c   0x00000034   Data   RO          174    .rodata.SystemInit.systemIpcPipeConfigCm4  system_psoc6_cm4.o
+    0x10006370   0x00000010   Data   RO         1462    .rodata.cst16       cyhal_hwmgr.o
+    0x10006380   0x000000c0   Data   RO         2402    .rodata.cy_deviceIpBlockCfgPSoC6_02  cy_device.o
+    0x10006440   0x0000001a   Data   RO         1459    .rodata.cyhal_block_offsets_clock  cyhal_hwmgr.o
+    0x1000645a   0x00000002   Data   RO         1460    .rodata.cyhal_block_offsets_dw  cyhal_hwmgr.o
+    0x1000645c   0x00000002   Data   RO         1463    .rodata.cyhal_block_offsets_tcpwm  cyhal_hwmgr.o
+    0x1000645e   0x0000003c   Data   RO         1458    .rodata.cyhal_resource_offsets  cyhal_hwmgr.o
+    0x1000649a   0x00000100   Data   RO           23    .rodata.sbox        aes_lib.o
+    0x1000659a   0x00000002   PAD
+    0x1000659c   0x00000014   Data   RO          151    .rodata.srss_0_clock_0_fll_0_fllConfig  cycfg_system.o
+    0x100065b0   0x00000003   Data   RO          145    .rodata.srss_0_clock_0_pathmux_0_obj  cycfg_system.o
+    0x100065b3   0x00000003   Data   RO          146    .rodata.srss_0_clock_0_pathmux_1_obj  cycfg_system.o
+    0x100065b6   0x00000003   Data   RO          147    .rodata.srss_0_clock_0_pathmux_2_obj  cycfg_system.o
+    0x100065b9   0x00000003   Data   RO          148    .rodata.srss_0_clock_0_pathmux_3_obj  cycfg_system.o
+    0x100065bc   0x00000003   Data   RO          149    .rodata.srss_0_clock_0_pathmux_4_obj  cycfg_system.o
+    0x100065bf   0x00000003   Data   RO          150    .rodata.srss_0_clock_0_pathmux_5_obj  cycfg_system.o
+    0x100065c2   0x00000005   Data   RO          152    .rodata.srss_0_clock_0_pll_0_pllConfig  cycfg_system.o
+    0x100065c7   0x0000000e   Data   RO          204    .rodata.str1.1      main.o
+    0x100065d5   0x00000003   PAD
+    0x100065d8   0x00000030   Data   RO         5349    Region$$Table       anon$$obj.o
+    0x10006608   0x00000004   Data   RO          175    .init_array         system_psoc6_cm4.o
+    0x1000660c   0x00000000   Data   RO         5007    .init_array         c_w.l(init_aeabi.o)
+
+
+    Execution Region .cy_app_signature (Base: 0x101fff00, Size: 0x00000000, Max: 0x00000100, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+
+  Load Region LR_EM_EEPROM (Base: 0x14000000, Size: 0x00000000, Max: 0x00008000, ABSOLUTE)
+
+    Execution Region .cy_em_eeprom (Base: 0x14000000, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+
+  Load Region LR_SFLASH_USER_DATA (Base: 0x16000800, Size: 0x00000000, Max: 0x00000800, ABSOLUTE)
+
+    Execution Region .cy_sflash_user_data (Base: 0x16000800, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+
+  Load Region LR_SFLASH_NAR (Base: 0x16001a00, Size: 0x00000000, Max: 0x00000200, ABSOLUTE)
+
+    Execution Region .cy_sflash_nar (Base: 0x16001a00, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+
+  Load Region LR_SFLASH_PUBLIC_KEY (Base: 0x16005a00, Size: 0x00000000, Max: 0x00000c00, ABSOLUTE)
+
+    Execution Region .cy_sflash_public_key (Base: 0x16005a00, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+
+  Load Region LR_SFLASH_TOC_2 (Base: 0x16007c00, Size: 0x00000000, Max: 0x00000200, ABSOLUTE)
+
+    Execution Region .cy_toc_part2 (Base: 0x16007c00, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+
+  Load Region LR_SFLASH_RTOC_2 (Base: 0x16007e00, Size: 0x00000000, Max: 0x00000200, ABSOLUTE)
+
+    Execution Region .cy_rtoc_part2 (Base: 0x16007e00, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+
+  Load Region LR_EROM (Base: 0x18000000, Size: 0x00000000, Max: 0x08000000, ABSOLUTE)
+
+    Execution Region cy_xip (Base: 0x18000000, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+
+  Load Region LR_EFUSE (Base: 0x90700000, Size: 0x00000000, Max: 0x00100000, ABSOLUTE)
+
+    Execution Region .cy_efuse (Base: 0x90700000, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+
+  Load Region CYMETA (Base: 0x90500000, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region .cymeta (Base: 0x90500000, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+     13208         92       8252        400    1037576     724341   Object Totals
+         0          0         48          0    1035992          0   (incl. Generated)
+       100          4         11          0          1          0   (incl. Padding)
+      2684        210         12         12        348       3168   Library Totals
+         8          0          0          0          0          0   (incl. Padding)
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+     15892        302       8264        412    1037924     725325   Grand Totals
+     15892        302       8264        412    1037924     725325   ELF Image Totals
+     15892        302       8264        412          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                24156 (  23.59kB)
+    Total RW  Size (RW Data + ZI Data)           1038336 (1014.00kB)
+    Total ROM Size (Code + RO Data + RW Data)      24568 (  23.99kB)
+
+==============================================================================
+

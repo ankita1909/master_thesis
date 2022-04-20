@@ -1,0 +1,184 @@
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,AES128_ECB_encrypt,16
+2,gen_cipher,98
+3,getSBoxValue,24
+4,keyExpansion,368
+5,mixColumns,318
+6,shiftRows,248
+7,subBytes,66
+8,xtime,26
+9,sum,1164
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,AES128_ECB_encrypt,16
+2,gen_cipher,98
+3,getSBoxValue,24
+4,keyExpansion,368
+5,mixColumns,318
+6,shiftRows,248
+7,subBytes,66
+8,xtime,26
+9,sum,1164
+10,opt-level = 1, 
+11,AES128_ECB_encrypt,8
+12,gen_cipher,70
+13,getSBoxValue,12
+14,keyExpansion,206
+15,mixColumns,166
+16,shiftRows,86
+17,subBytes,28
+18,xtime,16
+19,sum,592
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,AES128_ECB_encrypt,16
+2,gen_cipher,98
+3,getSBoxValue,24
+4,keyExpansion,368
+5,mixColumns,318
+6,shiftRows,248
+7,subBytes,66
+8,xtime,26
+9,sum,1164
+10,opt-level = 1, 
+11,AES128_ECB_encrypt,8
+12,gen_cipher,70
+13,getSBoxValue,12
+14,keyExpansion,206
+15,mixColumns,166
+16,shiftRows,86
+17,subBytes,28
+18,xtime,16
+19,sum,592
+20,opt-level = 2, 
+21,AES128_ECB_encrypt,4
+22,gen_cipher,204
+23,keyExpansion,214
+24,mixColumns,450
+25,subBytes,138
+26,sum,1010
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,AES128_ECB_encrypt,16
+2,gen_cipher,98
+3,getSBoxValue,24
+4,keyExpansion,368
+5,mixColumns,318
+6,shiftRows,248
+7,subBytes,66
+8,xtime,26
+9,sum,1164
+10,opt-level = 1, 
+11,AES128_ECB_encrypt,8
+12,gen_cipher,70
+13,getSBoxValue,12
+14,keyExpansion,206
+15,mixColumns,166
+16,shiftRows,86
+17,subBytes,28
+18,xtime,16
+19,sum,592
+20,opt-level = 2, 
+21,AES128_ECB_encrypt,4
+22,gen_cipher,204
+23,keyExpansion,214
+24,mixColumns,450
+25,subBytes,138
+26,sum,1010
+27,opt-level = 3, 
+28,AES128_ECB_encrypt,4
+29,gen_cipher,796
+30,keyExpansion,214
+31,mixColumns,450
+32,sum,1464
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,AES128_ECB_encrypt,16
+2,gen_cipher,98
+3,getSBoxValue,24
+4,keyExpansion,368
+5,mixColumns,318
+6,shiftRows,248
+7,subBytes,66
+8,xtime,26
+9,sum,1164
+10,opt-level = 1, 
+11,AES128_ECB_encrypt,8
+12,gen_cipher,70
+13,getSBoxValue,12
+14,keyExpansion,206
+15,mixColumns,166
+16,shiftRows,86
+17,subBytes,28
+18,xtime,16
+19,sum,592
+20,opt-level = 2, 
+21,AES128_ECB_encrypt,4
+22,gen_cipher,204
+23,keyExpansion,214
+24,mixColumns,450
+25,subBytes,138
+26,sum,1010
+27,opt-level = 3, 
+28,AES128_ECB_encrypt,4
+29,gen_cipher,796
+30,keyExpansion,214
+31,mixColumns,450
+32,sum,1464
+33,"opt-level = ""s""", 
+34,AES128_ECB_encrypt,4
+35,gen_cipher,148
+36,keyExpansion,166
+37,mixColumns,138
+38,shiftRows,86
+39,sum,542
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,AES128_ECB_encrypt,16
+2,gen_cipher,98
+3,getSBoxValue,24
+4,keyExpansion,368
+5,mixColumns,318
+6,shiftRows,248
+7,subBytes,66
+8,xtime,26
+9,sum,1164
+10,opt-level = 1, 
+11,AES128_ECB_encrypt,8
+12,gen_cipher,70
+13,getSBoxValue,12
+14,keyExpansion,206
+15,mixColumns,166
+16,shiftRows,86
+17,subBytes,28
+18,xtime,16
+19,sum,592
+20,opt-level = 2, 
+21,AES128_ECB_encrypt,4
+22,gen_cipher,204
+23,keyExpansion,214
+24,mixColumns,450
+25,subBytes,138
+26,sum,1010
+27,opt-level = 3, 
+28,AES128_ECB_encrypt,4
+29,gen_cipher,796
+30,keyExpansion,214
+31,mixColumns,450
+32,sum,1464
+33,"opt-level = ""s""", 
+34,AES128_ECB_encrypt,4
+35,gen_cipher,148
+36,keyExpansion,166
+37,mixColumns,138
+38,shiftRows,86
+39,sum,542
+40,"opt-level = ""z""", 
+41,AES128_ECB_encrypt,4
+42,gen_cipher,60
+43,keyExpansion,240
+44,mixColumns,150
+45,shiftRows,76
+46,subBytes,28
+47,sum,558
