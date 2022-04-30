@@ -1,8 +1,6 @@
 # PSoC 6 MCU: UART Transmit and Receive
 
-This code example demonstrates the UART (HAL) transmit and receive operation in PSoC® 6 MCU. The application uses a serial terminal to read data and to echo back the received data. The UART resource is configured to do both transmit and receive operations.
-
-[Provide feedback on this Code Example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMTk2NTYiLCJTcGVjIE51bWJlciI6IjAwMi0xOTY1NiIsIkRvYyBUaXRsZSI6IlBTb0MgNiBNQ1U6IFVBUlQgVHJhbnNtaXQgYW5kIFJlY2VpdmUiLCJyaWQiOiJ5ZWt0IiwiRG9jIHZlcnNpb24iOiIyLjEuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJNQ0QiLCJEb2MgQlUiOiJJQ1ciLCJEb2MgRmFtaWx5IjoiUFNPQyJ9)
+This code example demonstrates AES algorithm in C
 
 ## Requirements
 
