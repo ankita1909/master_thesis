@@ -1,0 +1,46 @@
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,AES128_ECB_encrypt,36
+2,gen_cipher,34
+3,getSBoxValue,16
+4,keyExpansion,8
+5,mixColumns,24
+6,shiftRows,22
+7,subBytes,20
+8,xtime,32
+9,sum,192
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,AES128_ECB_encrypt,36
+2,gen_cipher,34
+3,getSBoxValue,16
+4,keyExpansion,8
+5,mixColumns,24
+6,shiftRows,22
+7,subBytes,20
+8,xtime,32
+9,sum,192
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,AES128_ECB_encrypt,32
+2,gen_cipher,24
+3,keyExpansion,8
+4,mixColumns,22
+5,subBytes,18
+6,sum,104
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,AES128_ECB_encrypt,32
+2,gen_cipher,24
+3,keyExpansion,8
+4,mixColumns,22
+5,sum,86
+,Function Name,Nvm Values
+0,opt-level = 0, 
+1,AES128_ECB_encrypt,32
+2,gen_cipher,24
+3,keyExpansion,8
+4,mixColumns,22
+5,shiftRows,20
+6,subBytes,18
+7,sum,124

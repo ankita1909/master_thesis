@@ -1,0 +1,63 @@
+There are 22 section headers, starting at offset 0xafe1c:
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .cy_m0p_image     PROGBITS        10000000 000034 001850 00   A  0   0  1
+  [ 2] ER_FLASH_VECTORS  PROGBITS        10002000 001888 0002e0 00   A  0   0  4
+  [ 3] ER_FLASH_CODE     PROGBITS        100022e0 001b68 003fa0 00  AX  0   0  8
+  [ 4] ER_RAM_VECTORS    NOBITS          08002000 005b08 0002e0 00  WA  0   0  4
+  [ 5] RW_RAM_DATA       PROGBITS        080022e0 005b08 000108 00  WA  0   0  4
+  [ 6] RW_RAM_DATA       NOBITS          080023e8 005c10 0004b8 00  WA  0   0  4
+  [ 7] RW_IRAM1          PROGBITS        080028a0 005c10 000094 00  WA  0   0  4
+  [ 8] ARM_LIB_HEAP      NOBITS          08002934 005ca4 0fbec8 00  WA  0   0  1
+  [ 9] ARM_LIB_STACK     NOBITS          080fe800 005ca4 001000 00  WA  0   0  1
+  [10] .debug_abbrev     PROGBITS        00000000 005ca4 002b4d 00      0   0  1
+  [11] .debug_frame      PROGBITS        00000000 0087f1 003db4 00      0   0  1
+  [12] .debug_info       PROGBITS        00000000 00c5a5 029ba3 00      0   0  1
+  [13] .debug_line       PROGBITS        00000000 036148 00c6cb 00      0   0  1
+  [14] .debug_loc        PROGBITS        00000000 042813 00c50d 00      0   0  1
+  [15] .debug_str        PROGBITS        00000000 04ed20 054f63 00      0   0  1
+  [16] .debug_ranges     PROGBITS        00000000 0a3c83 001610 00      0   0  1
+  [17] .symtab           SYMTAB          00000000 0a5294 0045f0 10     18 621  4
+  [18] .strtab           STRTAB          00000000 0a9884 005118 00      0   0  1
+  [19] .note             NOTE            00000000 0ae99c 000034 00      0   0  4
+  [20] .comment          PROGBITS        00000000 0ae9d0 00116c 00      0   0  1
+  [21] .shstrtab         STRTAB          00000000 0afb3c 000180 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  y (purecode), p (processor specific)
+
+Elf file type is EXEC (Executable file)
+Entry point 0x100022e1
+There are 11 program headers, starting at offset 720060
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  LOAD           0x000034 0x10000000 0x10000000 0x01850 0x01850 R   0x4
+  LOAD           0x001888 0x10002000 0x10002000 0x0441c 0x101a7c RWE 0x8
+  LOAD           0x005ca4 0x14000000 0x14000000 0x00000 0x00000 R   0x4
+  LOAD           0x005ca4 0x16000800 0x16000800 0x00000 0x00000 R   0x4
+  LOAD           0x005ca4 0x16001a00 0x16001a00 0x00000 0x00000 R   0x4
+  LOAD           0x005ca4 0x16005a00 0x16005a00 0x00000 0x00000 R   0x4
+  LOAD           0x005ca4 0x16007c00 0x16007c00 0x00000 0x00000 R   0x4
+  LOAD           0x005ca4 0x16007e00 0x16007e00 0x00000 0x00000 R   0x4
+  LOAD           0x005ca4 0x18000000 0x18000000 0x00000 0x00000 R   0x4
+  LOAD           0x005ca4 0x90500000 0x90500000 0x00000 0x00000 R   0x4
+  LOAD           0x005ca4 0x90700000 0x90700000 0x00000 0x00000 R   0x4
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .cy_m0p_image 
+   01     ER_FLASH_VECTORS ER_FLASH_CODE 
+   02     
+   03     
+   04     
+   05     
+   06     
+   07     
+   08     
+   09     
+   10     
