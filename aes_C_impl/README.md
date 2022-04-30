@@ -1,4 +1,4 @@
-# PSoC 6 MCU: UART Transmit and Receive
+# PSoC 6 MCU: AES algorithm
 
 This code example demonstrates AES algorithm in C
 
