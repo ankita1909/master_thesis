@@ -9,4 +9,6 @@ The evaluation is based on security, performance and usability and is structured
 - exploiting_rust : contains the vulnerabilities implemented using the unsafe. Also contains Heartbleed vulnerability implementation in safe Rust.
 - Secure_coding_patterns : contains implementation of secure coding patterns to avoid Invasive attacks
 ## Performance
+- aes_impl : containst the AES algorithm implementation in Rust and setup for measuring the number of CPU cycles for a particular function
+- aes_C : contains the AES algorithm for cortex M4 implemented in C. Rust librarary is also included to understand the FFI feature
 - performance_eval_files :  contains assembly and map files generated for the evaluation of Rust. Also contains python scripts to extract values from these files and the results
